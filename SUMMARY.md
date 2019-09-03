@@ -16,6 +16,7 @@
 
 * [Common functional methods](functional/README.md)
     * [正则表达式](functional/regular.md)
+    * [时间函数](functional/time.md)
 
 * [CSS](cssAsset/README.md)
     * [css初始化](cssAsset/reset.md)
