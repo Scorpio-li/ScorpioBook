@@ -18,6 +18,7 @@
     * [正则表达式](functional/regular.md)
     * [Time](functional/time.md)
     * [URL](functional/url.md)
+    * [Random](functional/random.md)
 
 * [CSS](cssAsset/README.md)
     * [css初始化](cssAsset/reset.md)
