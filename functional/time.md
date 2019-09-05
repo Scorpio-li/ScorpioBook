@@ -139,3 +139,27 @@ function format_time(timeStamp) {
 }
 ```
 
+
+## 8. 获取当前月的最后一天
+
+```js
+/*
+timeStamp: 时间
+*/
+// 获取上个月的最后一天
+function (timeStamp) {
+    let endDate = new Date(timeStamp); // 获取当前时间
+    return endDate.setDate(0); // 获取上个月的最后一天(结果是时间戳)
+}
+
+// 获取当前月的最后一天
+function (timeStamp) {
+    var date= new Date(timeStamp); //0 表示1月
+    // month + 1，在 JS 中会理解成: 当前日期 + 当月的天数
+    date.setDate(28); // 为了保证month + 1 不会多跳过一个月，即1月31号跳到3月的情况，所以统一设置为28号
+    date.setMonth(date.getMonth() + 1);
+    // 日期设置为0号, 0表示1号的前一天
+    let lastDay = date.setDate(0);
+    console.log('最后一天：' + new Date(lastDay).toLocaleString()) 
+}
+```
