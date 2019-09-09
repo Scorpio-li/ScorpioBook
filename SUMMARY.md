@@ -20,6 +20,9 @@
     * [URL](functional/url.md)
     * [Random](functional/random.md)
 
+* [JS](js/README.md)
+    * [JS的客户端判断](js/judge.md)
+
 * [CSS](cssAsset/README.md)
     * [css初始化](cssAsset/reset.md)
     * [String & Text](cssAsset/str.md)
