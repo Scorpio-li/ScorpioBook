@@ -19,9 +19,11 @@
     * [Time](functional/time.md)
     * [URL](functional/url.md)
     * [Random](functional/random.md)
+    * [text(文本)](functional/text.md)
 
 * [JS](js/README.md)
     * [JS的客户端判断](js/judge.md)
+    * [JS检测函数](js/check.md)
 
 * [CSS](cssAsset/README.md)
     * [css初始化](cssAsset/reset.md)
