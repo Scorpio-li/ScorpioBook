@@ -79,3 +79,47 @@ div {
     border: 5px solid red;
 }
 ```
+
+## 5. 使用:not()去除导航上不需要的边框
+
+```css
+/* 添加边框 */
+.nav li {
+    border-right:1px solid #666;
+}
+/* 然后去除最后一个元素的边框 */
+.nav li:last-child {
+    border-right:none;
+}
+/* 或 */
+.nav li:not(:last-child){
+    border-right:1px solid #666;
+}
+
+```
+
+## 6. css变量--> :root{}
+- 设置页面基本css样式数值：
+
+```css
+:root {
+   --base-font-size:30px; 
+   --columns:200px 200px;
+   --base-margin:30px;
+}
+
+/* 设置页面样式 */
+#nav {
+    margin : var(--base-margin) 0;
+    font-size: var(--base-font-size);
+}
+
+/* 媒体查询中修改这些变量值:即可修改页面样式 */
+@media all and (max-width: 450px){
+    :root {
+       --base-font-size:20px; 
+       --columns:200px 100px;
+       --base-margin:20px;
+    }
+}
+```
