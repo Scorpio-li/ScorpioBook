@@ -6,7 +6,7 @@ BEM(Block Element Modifier) 是一种命名CSS class的模式，使用这种模�
 - 页面上逻辑和功能独立的，可复用的组件，可以嵌套并相互交互，但在语义上它们保持平等，可以存在页面上不同的位置或不同项目中，保持样式不变
 
 - 可以使用字母，数字，连字符进行命名，任何html元素都可以成为一个block，不依赖于页面上的其他block或者element。
-<!-- more -->
+
 ```html
 <header class="header"></header>
 ```
