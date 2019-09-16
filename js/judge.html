@@ -1,0 +1,620 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>JS的客户端判断 · Scorpio's Glory</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Lzl">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="check.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    
+        <link rel="shortcut icon" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../source/images/apple-touch-icon.jpg'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../source/images/apple-touch-icon.jpg">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../source/images/apple-touch-icon.jpg">
+        
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Lzl","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blankj.com" target="_blank" class="custom-link">我的狗窝</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Gitbook介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../functional/">
+            
+                <a href="../functional/">
+            
+                    
+                    Common functional methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../functional/regular.html">
+            
+                <a href="../functional/regular.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../functional/time.html">
+            
+                <a href="../functional/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../functional/url.html">
+            
+                <a href="../functional/url.html">
+            
+                    
+                    URL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../functional/random.html">
+            
+                <a href="../functional/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../functional/text.html">
+            
+                <a href="../functional/text.html">
+            
+                    
+                    text(文本)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    JS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="judge.html">
+            
+                <a href="judge.html">
+            
+                    
+                    JS的客户端判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="check.html">
+            
+                <a href="check.html">
+            
+                    
+                    JS检测函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cssAsset/">
+            
+                <a href="../cssAsset/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cssAsset/reset.html">
+            
+                <a href="../cssAsset/reset.html">
+            
+                    
+                    css初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cssAsset/attribute.html">
+            
+                <a href="../cssAsset/attribute.html">
+            
+                    
+                    CSS3属性与变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cssAsset/unit.html">
+            
+                <a href="../cssAsset/unit.html">
+            
+                    
+                    css计量单位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cssAsset/str.html">
+            
+                <a href="../cssAsset/str.html">
+            
+                    
+                    String & Text
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../project/">
+            
+                <a href="../project/">
+            
+                    
+                    Project(项目中常见问题)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../project/css-standars.html">
+            
+                <a href="../project/css-standars.html">
+            
+                    
+                    css-standard(BEM命名规范入门)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../project/form.html">
+            
+                <a href="../project/form.html">
+            
+                    
+                    form(表单)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >JS的客户端判断</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#1-&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7F51;&#x7EDC;"><b></b>1. &#x5224;&#x65AD;&#x5F53;&#x524D;&#x7F51;&#x7EDC;</a></li><ul><li><span class="title-icon "></span><a href="#1-navigatoronline"><b></b>1. navigator.onLine</a></li><li><span class="title-icon "></span><a href="#2-ajax&#x8BF7;&#x6C42;"><b></b>2. ajax&#x8BF7;&#x6C42;</a></li><li><span class="title-icon "></span><a href="#3-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8D44;&#x6E90;"><b></b>3. &#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8D44;&#x6E90;</a></li><li><span class="title-icon "></span><a href="#4-windowaddeventlistener"><b></b>4. window.addEventListener()</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="1-&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7F51;&#x7EDC;"><a name="1-&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7F51;&#x7EDC;" class="anchor-navigation-ex-anchor" href="#1-&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7F51;&#x7EDC;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7F51;&#x7EDC;" class="plugin-anchor" href="#1-&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7F51;&#x7EDC;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5224;&#x65AD;&#x5F53;&#x524D;&#x7F51;&#x7EDC;</h2>
+<h3 id="1-navigatoronline"><a name="1-navigatoronline" class="anchor-navigation-ex-anchor" href="#1-navigatoronline"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-navigatoronline" class="plugin-anchor" href="#1-navigatoronline"><i class="fa fa-link" aria-hidden="true"></i></a>1. navigator.onLine</h3>
+<ul>
+<li><p>&#x901A;&#x8FC7;navigator.onLine&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7F51;&#x7EDC;&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">if</span>(navigator.onLine){
+...
+}<span class="hljs-keyword">else</span>{
+...
+}
+</code></pre>
+</li>
+<li><p>&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x4F46;&#x662F;&#x5E76;&#x4E0D;&#x51C6;&#x786E;-&#x6839;&#x636E;MDN&#x7684;&#x63CF;&#x8FF0;&#xFF1A;navigator.onLine&#x53EA;&#x4F1A;&#x5728;&#x673A;&#x5668;&#x672A;&#x8FDE;&#x63A5;&#x5230;&#x5C40;&#x57DF;&#x7F51;&#x6216;&#x8DEF;&#x7531;&#x5668;&#x65F6;&#x8FD4;&#x56DE;false&#xFF0C;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x4E0B;&#x5747;&#x8FD4;&#x56DE;true&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x673A;&#x5668;&#x8FDE;&#x63A5;&#x4E0A;&#x8DEF;&#x7531;&#x5668;&#x540E;&#xFF0C;&#x5373;&#x4F7F;&#x8FD9;&#x4E2A;&#x8DEF;&#x7531;&#x5668;&#x6CA1;&#x8054;&#x901A;&#x7F51;&#x7EDC;&#xFF0C;navigator.onLine&#x4ECD;&#x7136;&#x8FD4;&#x56DE;true&#x3002;</p>
+</li>
+</ul>
+<h3 id="2-ajax&#x8BF7;&#x6C42;"><a name="2-ajax&#x8BF7;&#x6C42;" class="anchor-navigation-ex-anchor" href="#2-ajax&#x8BF7;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-ajax&#x8BF7;&#x6C42;" class="plugin-anchor" href="#2-ajax&#x8BF7;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a>2. ajax&#x8BF7;&#x6C42;</h3>
+<ul>
+<li><p>&#x91C7;&#x7528;get&#x8BF7;&#x6C42;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6839;&#x636E;&#x8FD4;&#x56DE;&#x503C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x80FD;&#x591F;&#x6210;&#x529F;get&#x5230;&#x6570;&#x636E;&#xFF0C;&#x4ECE;&#x800C;&#x786E;&#x5B9A;&#x5F53;&#x524D;&#x7684;&#x7F51;&#x7EDC;&#x72B6;&#x6001;&#xFF1A;</p>
+<pre><code class="lang-js">$.ajax({
+url: <span class="hljs-string">&apos;x.html&apos;</span>,
+success: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>)</span>{
+  ...
+}, 
+error: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>)</span>{
+  ...
+}
+});
+</code></pre>
+</li>
+<li><p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x7F3A;&#x70B9;&#x5728;&#x4E8E;&#xFF0C;&#x65E0;&#x6CD5;&#x5F88;&#x597D;&#x7684;&#x533A;&#x5206;&#x662F;&#x670D;&#x52A1;&#x5668;&#x51FA;&#x73B0;&#x6545;&#x969C;&#x8FD8;&#x662F;&#x7528;&#x6237;&#x7684;&#x7F51;&#x7EDC;&#x6709;&#x95EE;&#x9898;&#x3002;</p>
+</li>
+</ul>
+<h3 id="3-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8D44;&#x6E90;"><a name="3-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8D44;&#x6E90;" class="anchor-navigation-ex-anchor" href="#3-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8D44;&#x6E90;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8D44;&#x6E90;" class="plugin-anchor" href="#3-&#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8D44;&#x6E90;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x83B7;&#x53D6;&#x7F51;&#x7EDC;&#x8D44;&#x6E90;</h3>
+<ul>
+<li><p>&#x539F;&#x7406;&#x540C;2&#xFF0C;&#x5728;&#x9875;&#x9762;&#x653E;&#x4E00;&#x5F20;&#x9690;&#x85CF;&#x56FE;&#x7247;&#xFF0C;&#x8BBE;&#x7F6E;&#x5176;onerror&#x51FD;&#x6570;(&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x8D44;&#x6E90;&#x5931;&#x8D25;&#x65F6;&#x4F1A;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570;)&#xFF1A;</p>
+<pre><code class="lang-js">&lt;script src=<span class="hljs-string">&quot;./jquery-3.1.1.min.js&quot;</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;script&gt;
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getImgError</span>(<span class="hljs-params"></span>)</span>{
+alert(<span class="hljs-string">&quot;Network disconnect!&quot;</span>);
+}
+$().ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+$(<span class="hljs-string">&quot;#btn-test&quot;</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">var</span> imgPath = <span class="hljs-string">&quot;https://www.baidu.com/img/bd_logo1.png&quot;</span>;
+  <span class="hljs-keyword">var</span> timeStamp = <span class="hljs-built_in">Date</span>.parse(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());
+  $(<span class="hljs-string">&quot;#img-test&quot;</span>).attr(<span class="hljs-string">&quot;src&quot;</span>, imgPath + <span class="hljs-string">&quot;?timestamp=&quot;</span> + timeStamp);
+});
+});
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+&lt;body&gt;
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;img-test&quot;</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:none;&quot;</span> <span class="hljs-attr">onerror</span>=<span class="hljs-string">&quot;getImgError()&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn-test&quot;</span>&gt;</span>check status<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span>
+</code></pre>
+</li>
+<li><p>&#x6BCF;&#x6B21;&#x70B9;&#x51FB;button&#x65F6;&#xFF0C;&#x66F4;&#x65B0;&#x8BE5;&#x56FE;&#x7247;&#x7684;src&#x3002;&#x82E5;&#x83B7;&#x53D6;&#x56FE;&#x7247;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x8BA4;&#x4E3A;&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x5931;&#x8D25;&#x3002;
+&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x6210;&#x529F;&#x4E0E;&#x5426;&#x53D6;&#x51B3;&#x4E8E;&#x4FDD;&#x5B58;&#x56FE;&#x7247;&#x7684;&#x670D;&#x52A1;&#x5668;&#x662F;&#x5426;&#x7A33;&#x5B9A;&#x3002;&#x5F53;&#x4FDD;&#x5B58;&#x56FE;&#x7247;&#x7684;&#x670D;&#x52A1;&#x5668;&#x51FA;&#x73B0;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x4E5F;&#x4F1A;&#x9519;&#x8BEF;&#x7684;&#x8BA4;&#x4E3A;&#x662F;&#x7528;&#x6237;&#x7684;&#x7F51;&#x7EDC;&#x6709;&#x95EE;&#x9898;&#x3002;</p>
+</li>
+</ul>
+<h3 id="4-windowaddeventlistener"><a name="4-windowaddeventlistener" class="anchor-navigation-ex-anchor" href="#4-windowaddeventlistener"><i class="fa fa-link" aria-hidden="true"></i></a><a name="4-windowaddeventlistener" class="plugin-anchor" href="#4-windowaddeventlistener"><i class="fa fa-link" aria-hidden="true"></i></a>4. window.addEventListener()</h3>
+<ul>
+<li>&#x6839;&#x636E;MDN&#x4E2D;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x7CFB;&#x7EDF;&#x589E;&#x52A0;&#x7F51;&#x7EDC;&#x72B6;&#x6001;&#x76D1;&#x542C;&#x51FD;&#x6570;&#xFF1A;</li>
+</ul>
+<pre><code class="lang-js"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&apos;online&apos;</span>,  updateOnlineStatus);
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&apos;offline&apos;</span>, updateOnlineStatus);
+
+<span class="hljs-comment">// &#x4F8B;&#xFF1A;</span>
+
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&apos;online&apos;</span>,  <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  alert(<span class="hljs-string">&quot;onLine&quot;</span>);
+});
+<span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&apos;offline&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  alert(<span class="hljs-string">&quot;offLine&quot;</span>);
+});
+</code></pre>
+<ul>
+<li>&#x5F53;&#x7F51;&#x7EDC;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x76D1;&#x542C;&#x51FD;&#x6570;&#x53EF;&#x6355;&#x83B7;&#x5230;&#x7F51;&#x7EDC;&#x7684;&#x72B6;&#x6001;&#x3002;
+&#x8BE5;&#x65B9;&#x6CD5;&#x5728;&#x4E0B;Chrome(59.0.3071.115)/Firefox(54.0.1)/IE Edge&#x4E2D;&#x5747;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x3002;</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: JS">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="check.html" class="navigation navigation-next " aria-label="Next page: JS检测函数">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"JS的客户端判断","level":"1.3.1","depth":2,"next":{"title":"JS检测函数","level":"1.3.2","depth":2,"path":"js/check.md","ref":"js/check.md","articles":[]},"previous":{"title":"JS","level":"1.3","depth":1,"path":"js/README.md","ref":"js/README.md","articles":[{"title":"JS的客户端判断","level":"1.3.1","depth":2,"path":"js/judge.md","ref":"js/judge.md","articles":[]},{"title":"JS检测函数","level":"1.3.2","depth":2,"path":"js/check.md","ref":"js/check.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/Scorpio-li/ScorpioBook"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"./source/images/donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon.jpg","bookmark":"./source/images/favicon.jpg","appleTouch":"./source/images/apple-touch-icon.jpg","appleTouchMore":{"120x120":"./source/images/apple-touch-icon.jpg","180x180":"./source/images/apple-touch-icon.jpg"}},"github-buttons":{"buttons":[{"user":"Lzl","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Lzl","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scorpio's Glory","language":"zh-hans","links":{"sidebar":{"我的狗窝":"https://blankj.com"}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"js/judge.md","mtime":"2019-09-09T13:34:52.213Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T14:48:52.753Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

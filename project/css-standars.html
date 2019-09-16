@@ -1,0 +1,613 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>css-standard(BEM命名规范入门) · Scorpio's Glory</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Lzl">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="form.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    
+        <link rel="shortcut icon" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../source/images/apple-touch-icon.jpg'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../source/images/apple-touch-icon.jpg">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../source/images/apple-touch-icon.jpg">
+        
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Lzl","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blankj.com" target="_blank" class="custom-link">我的狗窝</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Gitbook介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../functional/">
+            
+                <a href="../functional/">
+            
+                    
+                    Common functional methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../functional/regular.html">
+            
+                <a href="../functional/regular.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../functional/time.html">
+            
+                <a href="../functional/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../functional/url.html">
+            
+                <a href="../functional/url.html">
+            
+                    
+                    URL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../functional/random.html">
+            
+                <a href="../functional/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../functional/text.html">
+            
+                <a href="../functional/text.html">
+            
+                    
+                    text(文本)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../js/">
+            
+                <a href="../js/">
+            
+                    
+                    JS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../js/judge.html">
+            
+                <a href="../js/judge.html">
+            
+                    
+                    JS的客户端判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../js/check.html">
+            
+                <a href="../js/check.html">
+            
+                    
+                    JS检测函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cssAsset/">
+            
+                <a href="../cssAsset/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cssAsset/reset.html">
+            
+                <a href="../cssAsset/reset.html">
+            
+                    
+                    css初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cssAsset/attribute.html">
+            
+                <a href="../cssAsset/attribute.html">
+            
+                    
+                    CSS3属性与变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cssAsset/unit.html">
+            
+                <a href="../cssAsset/unit.html">
+            
+                    
+                    css计量单位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cssAsset/str.html">
+            
+                <a href="../cssAsset/str.html">
+            
+                    
+                    String & Text
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Project(项目中常见问题)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.5.1" data-path="css-standars.html">
+            
+                <a href="css-standars.html">
+            
+                    
+                    css-standard(BEM命名规范入门)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="form.html">
+            
+                <a href="form.html">
+            
+                    
+                    form(表单)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >css-standard(BEM命名规范入门)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x4E00;-&#x4EC0;&#x4E48;&#x662F;bem"><b></b>&#x4E00;. &#x4EC0;&#x4E48;&#x662F;BEM</a></li><ul><li><span class="title-icon "></span><a href="#1-block"><b></b>1. Block</a></li><li><span class="title-icon "></span><a href="#2-element"><b></b>2. Element</a></li><li><span class="title-icon "></span><a href="#3-modifier"><b></b>3. Modifier</a></li></ul><li><span class="title-icon "></span><a href="#&#x4E8C;-&#x5E38;&#x7528;css-class&#x540D;"><b></b>&#x4E8C;. &#x5E38;&#x7528;CSS class&#x540D;</a></li></ul></div><a href="#&#x4E00;-&#x4EC0;&#x4E48;&#x662F;bem" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x4E00;-&#x4EC0;&#x4E48;&#x662F;bem"><a name="&#x4E00;-&#x4EC0;&#x4E48;&#x662F;bem" class="anchor-navigation-ex-anchor" href="#&#x4E00;-&#x4EC0;&#x4E48;&#x662F;bem"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E00;-&#x4EC0;&#x4E48;&#x662F;bem" class="plugin-anchor" href="#&#x4E00;-&#x4EC0;&#x4E48;&#x662F;bem"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E00;. &#x4EC0;&#x4E48;&#x662F;BEM</h1>
+<p>BEM(Block Element Modifier) &#x662F;&#x4E00;&#x79CD;&#x547D;&#x540D;CSS class&#x7684;&#x6A21;&#x5F0F;&#xFF0C;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x8BA9; CSS &#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x5229;&#x4E8E;&#x7EF4;&#x62A4;&#x3002;&#x6807;&#x51C6;&#x7684; BEM &#x5199;&#x6CD5;&#x662F; .block-name__element-name--modifier-name&#x3002;</p>
+<h2 id="1-block"><a name="1-block" class="anchor-navigation-ex-anchor" href="#1-block"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-block" class="plugin-anchor" href="#1-block"><i class="fa fa-link" aria-hidden="true"></i></a>1. Block</h2>
+<ul>
+<li><p>&#x9875;&#x9762;&#x4E0A;&#x903B;&#x8F91;&#x548C;&#x529F;&#x80FD;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x53EF;&#x590D;&#x7528;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x5D4C;&#x5957;&#x5E76;&#x76F8;&#x4E92;&#x4EA4;&#x4E92;&#xFF0C;&#x4F46;&#x5728;&#x8BED;&#x4E49;&#x4E0A;&#x5B83;&#x4EEC;&#x4FDD;&#x6301;&#x5E73;&#x7B49;&#xFF0C;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x4E0D;&#x540C;&#x7684;&#x4F4D;&#x7F6E;&#x6216;&#x4E0D;&#x540C;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x4FDD;&#x6301;&#x6837;&#x5F0F;&#x4E0D;&#x53D8;</p>
+</li>
+<li><p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5B57;&#x6BCD;&#xFF0C;&#x6570;&#x5B57;&#xFF0C;&#x8FDE;&#x5B57;&#x7B26;&#x8FDB;&#x884C;&#x547D;&#x540D;&#xFF0C;&#x4EFB;&#x4F55;html&#x5143;&#x7D20;&#x90FD;&#x53EF;&#x4EE5;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;block&#xFF0C;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x5176;&#x4ED6;block&#x6216;&#x8005;element&#x3002;</p>
+</li>
+</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;header&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-css"><span class="hljs-selector-class">.header</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#333</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-number">#f5f5f5</span>;
+}
+</code></pre>
+<h2 id="2-element"><a name="2-element" class="anchor-navigation-ex-anchor" href="#2-element"><i class="fa fa-link" aria-hidden="true"></i></a><a name="2-element" class="plugin-anchor" href="#2-element"><i class="fa fa-link" aria-hidden="true"></i></a>2. Element</h2>
+<ul>
+<li>&#x7EC4;&#x6210;&#x5757;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5185;&#x90E8;&#x7684;&#x4EFB;&#x4F55;&#x5143;&#x7D20;&#x90FD;&#x4E0E;&#x5757;&#x6709;&#x5173;&#x8054;&#xFF0C;&#x4E0D;&#x80FD;&#x5728;&#x5757;&#x7684;&#x5916;&#x90E8;&#x4F7F;&#x7528;&#x3002;</li>
+</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;article&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;article__title&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;article__content&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-css"><span class="hljs-selector-class">.article</span> {
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">12px</span>;
+}
+
+<span class="hljs-selector-class">.article__title</span> {
+  <span class="hljs-attribute">font-size</span>: <span class="hljs-number">1rem</span>;
+}
+
+<span class="hljs-selector-class">.article__content</span> {
+   <span class="hljs-attribute">font-size</span>: .<span class="hljs-number">9rem</span>;
+}
+</code></pre>
+<h2 id="3-modifier"><a name="3-modifier" class="anchor-navigation-ex-anchor" href="#3-modifier"><i class="fa fa-link" aria-hidden="true"></i></a><a name="3-modifier" class="plugin-anchor" href="#3-modifier"><i class="fa fa-link" aria-hidden="true"></i></a>3. Modifier</h2>
+<ul>
+<li>&#x7528;&#x6765;&#x8868;&#x793A;&#x5757;&#x6216;&#x8005;&#x5143;&#x7D20;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5916;&#x89C2;&#x6216;&#x8005;&#x884C;&#x4E3A;&#xFF0C;&#x4E0D;&#x5FC5;&#x987B;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x3002;</li>
+</ul>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;btn btn--disabled&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-css"><span class="hljs-selector-class">.btn</span> {
+  <span class="hljs-attribute">color</span>:  <span class="hljs-number">#333</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#fff</span>;
+}
+
+<span class="hljs-selector-class">.btn--disabled</span> {
+  <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+  <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#6c757d</span>;
+}
+</code></pre>
+<h1 id="&#x4E8C;-&#x5E38;&#x7528;css-class&#x540D;"><a name="&#x4E8C;-&#x5E38;&#x7528;css-class&#x540D;" class="anchor-navigation-ex-anchor" href="#&#x4E8C;-&#x5E38;&#x7528;css-class&#x540D;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="&#x4E8C;-&#x5E38;&#x7528;css-class&#x540D;" class="plugin-anchor" href="#&#x4E8C;-&#x5E38;&#x7528;css-class&#x540D;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E8C;. &#x5E38;&#x7528;CSS class&#x540D;</h1>
+<ul>
+<li><p>&#x5305;&#x88F9;&#x7C7B;&#xFF1A; container, wrapper, outer, inner, box, header, footer, main, content, aside, page, section, block</p>
+</li>
+<li><p>&#x72B6;&#x6001;&#x7C7B;&#xFF1A; primary, secondary, success, danger, warning, info, error, Link, light, dark, disabled, active, checked, loading</p>
+</li>
+<li><p>&#x5C3A;&#x5BF8;&#x7C7B;&#xFF1A; large, middle, small, bigger, smaller</p>
+</li>
+<li><p>&#x7EC4;&#x4EF6;&#x7C7B;&#xFF1A; card, list, picture, carousel, swiper, menu, navs, badge, hint, modal, dialog</p>
+</li>
+<li><p>&#x4F4D;&#x7F6E;&#x7C7B;&#xFF1A; first, last, current, prev, next, forward, back</p>
+</li>
+<li><p>&#x6587;&#x672C;&#x7C7B;&#xFF1A; title, desc, content, date, author, category&#xFF0C;label&#xFF0C;tag</p>
+</li>
+<li><p>&#x4EBA;&#x7269;&#x7C7B;&#xFF1A; avatar, name, age, post, intro</p>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Project(项目中常见问题)">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="form.html" class="navigation navigation-next " aria-label="Next page: form(表单)">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"css-standard(BEM命名规范入门)","level":"1.5.1","depth":2,"next":{"title":"form(表单)","level":"1.5.2","depth":2,"path":"project/form.md","ref":"project/form.md","articles":[]},"previous":{"title":"Project(项目中常见问题)","level":"1.5","depth":1,"path":"project/README.md","ref":"project/README.md","articles":[{"title":"css-standard(BEM命名规范入门)","level":"1.5.1","depth":2,"path":"project/css-standars.md","ref":"project/css-standars.md","articles":[]},{"title":"form(表单)","level":"1.5.2","depth":2,"path":"project/form.md","ref":"project/form.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/Scorpio-li/ScorpioBook"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"./source/images/donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon.jpg","bookmark":"./source/images/favicon.jpg","appleTouch":"./source/images/apple-touch-icon.jpg","appleTouchMore":{"120x120":"./source/images/apple-touch-icon.jpg","180x180":"./source/images/apple-touch-icon.jpg"}},"github-buttons":{"buttons":[{"user":"Lzl","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Lzl","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scorpio's Glory","language":"zh-hans","links":{"sidebar":{"我的狗窝":"https://blankj.com"}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"project/css-standars.md","mtime":"2019-09-16T10:20:30.635Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T14:48:52.753Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

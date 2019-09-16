@@ -4,7 +4,8 @@
     "description": "A book about Common Use",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "deploy": "gh-pages -d _book"
     },
     "repository": {
         "type": "git",
@@ -16,5 +17,8 @@
     "bugs": {
         "url": "https://github.com/Scorpio-li/ScorpioBook/issues"
     },
-    "homepage": "https://github.com/Scorpio-li/ScorpioBook"
+    "homepage": "https://github.com/Scorpio-li/ScorpioBook",
+    "devDependencies": {
+        "gh-pages": "^2.1.1"
+    }
 }

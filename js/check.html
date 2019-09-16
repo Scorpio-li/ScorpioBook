@@ -1,0 +1,1150 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>JS检测函数 · Scorpio's Glory</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Lzl">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../cssAsset/" />
+    
+    
+    <link rel="prev" href="judge.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../source/images/favicon.jpg' type="image/x-icon">
+    
+    
+        <link rel="apple-touch-icon" href='../source/images/apple-touch-icon.jpg'>
+    
+    
+        
+        <link rel="apple-touch-icon" sizes="120x120" href="../source/images/apple-touch-icon.jpg">
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="../source/images/apple-touch-icon.jpg">
+        
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"Lzl","repo":"glory","type":"star","size":"small","count":true}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://blankj.com" target="_blank" class="custom-link">我的狗窝</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Gitbook介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../functional/">
+            
+                <a href="../functional/">
+            
+                    
+                    Common functional methods
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../functional/regular.html">
+            
+                <a href="../functional/regular.html">
+            
+                    
+                    正则表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../functional/time.html">
+            
+                <a href="../functional/time.html">
+            
+                    
+                    Time
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../functional/url.html">
+            
+                <a href="../functional/url.html">
+            
+                    
+                    URL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../functional/random.html">
+            
+                <a href="../functional/random.html">
+            
+                    
+                    Random
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../functional/text.html">
+            
+                <a href="../functional/text.html">
+            
+                    
+                    text(文本)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    JS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="judge.html">
+            
+                <a href="judge.html">
+            
+                    
+                    JS的客户端判断
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.2" data-path="check.html">
+            
+                <a href="check.html">
+            
+                    
+                    JS检测函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../cssAsset/">
+            
+                <a href="../cssAsset/">
+            
+                    
+                    CSS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../cssAsset/reset.html">
+            
+                <a href="../cssAsset/reset.html">
+            
+                    
+                    css初始化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../cssAsset/attribute.html">
+            
+                <a href="../cssAsset/attribute.html">
+            
+                    
+                    CSS3属性与变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../cssAsset/unit.html">
+            
+                <a href="../cssAsset/unit.html">
+            
+                    
+                    css计量单位
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../cssAsset/str.html">
+            
+                <a href="../cssAsset/str.html">
+            
+                    
+                    String & Text
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../project/">
+            
+                <a href="../project/">
+            
+                    
+                    Project(项目中常见问题)
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../project/css-standars.html">
+            
+                <a href="../project/css-standars.html">
+            
+                    
+                    css-standard(BEM命名规范入门)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../project/form.html">
+            
+                <a href="../project/form.html">
+            
+                    
+                    form(表单)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >JS检测函数</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#1-&#x78B0;&#x649E;&#x68C0;&#x6D4B;"><b></b>1. &#x78B0;&#x649E;&#x68C0;&#x6D4B;</a></li></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="1-&#x78B0;&#x649E;&#x68C0;&#x6D4B;"><a name="1-&#x78B0;&#x649E;&#x68C0;&#x6D4B;" class="anchor-navigation-ex-anchor" href="#1-&#x78B0;&#x649E;&#x68C0;&#x6D4B;"><i class="fa fa-link" aria-hidden="true"></i></a><a name="1-&#x78B0;&#x649E;&#x68C0;&#x6D4B;" class="plugin-anchor" href="#1-&#x78B0;&#x649E;&#x68C0;&#x6D4B;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x78B0;&#x649E;&#x68C0;&#x6D4B;</h2>
+<pre><code class="lang-js"><span class="hljs-comment">// &#x78B0;&#x649E;&#x68C0;&#x6D4B;</span>
+<span class="hljs-comment">/*
+*2D&#x7A7A;&#x95F4;&#x78B0;&#x649E;&#x68C0;&#x6D4B;
+1. &#x77E9;&#x5F62;&#x78B0;&#x649E;&#x77E9;&#x5F62;:
+rectB.x &gt; rectA.x - rectB.width &amp;&amp;
+rectB.x &lt; rectA.x + rectA.width + rectB.width &amp;&amp;
+rectB.y &gt; rectA.y - rectB.height &amp;&amp;
+rectB.y &lt; rectA.y + rectA.height + rectB.height
+
+2.&#x5706;&#x5F62;&#x78B0;&#x649E;&#x5706;&#x5F62;:&#x53EA;&#x8981;&#x4E24;&#x5706;&#x7684;&#x5706;&#x5C0F;&#x4E8E;&#x4E24;&#x5706;&#x7684;&#x534A;&#x5F84;&#x4E4B;&#x548C;&#x5C31;&#x80FD;&#x8BA4;&#x5B9A;&#x4E24;&#x5706;&#x53D1;&#x751F;&#x4E86;&#x78B0;&#x649E;
+Math.sqrt(Math.pow(circleA.x - circleB.x, 2) + Math.pow(circleA.y - circleB.y, 2)) &lt; circleA.radius + circleB.radius
+
+3.&#x5706;&#x5F62;&#x548C;&#x77E9;&#x5F62;&#x7684;&#x78B0;&#x649E;:&#x5C06;&#x5706;&#x5F62;&#x770B;&#x6210;&#x4E00;&#x4E2A;&#x77E9;&#x5F62;&#xFF0C;&#x7528;&#x77E9;&#x5F62;&#x4E0E;&#x77E9;&#x5F62;&#x4E4B;&#x95F4;&#x7684;&#x90A3;&#x5957;&#x65B9;&#x6CD5;&#x6765;&#x68C0;&#x6D4B;&#x78B0;&#x649E;&#x3002;
+circle.x &gt; rect.x - circle.radius &amp;&amp;
+circle.x &lt; rect.x + rect.width + circle.radius &amp;&amp;
+circle.y &gt; rect.y - circle.radius &amp;&amp;
+circle.y &gt; rect.y + rect.height + circle.radius
+
+*/</span>
+
+
+<span class="hljs-comment">// &#x5206;&#x79BB;&#x8F74;&#x68C0;&#x6D4B;</span>
+(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">global, doc</span>) </span>{
+    <span class="hljs-keyword">var</span> inherit, extend, Vector, Projection,
+        Shape, Polygon, Point, Circle, Line,
+        getPolygonPointClosestToCircle, polygonCollidesWithCircle,
+        polygonCollidesWithPolygon, circleCollidesWithCircle,
+        shapeCollideswithLine;
+
+    <span class="hljs-comment">// &#x5BF9;&#x8C61;&#x6269;&#x5C55;................................</span>
+    extend = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">extend</span>(<span class="hljs-params">target, obj</span>) </span>{
+        <span class="hljs-keyword">var</span> prop, val;
+        <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">Array</span>.isArray(obj)) {
+            <span class="hljs-keyword">for</span> (prop <span class="hljs-keyword">in</span> obj) {
+                val = obj[prop];
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> val === <span class="hljs-string">&apos;object&apos;</span>) {
+                    target[prop] = <span class="hljs-built_in">Array</span>.isArray(val) ? [] : {};
+                    extend(target[prop], val);
+                } <span class="hljs-keyword">else</span> {
+                    target[prop] = val;
+                }
+            }
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">for</span> (prop = <span class="hljs-number">0</span>; prop &lt; obj.length; prop++) {
+                val = obj[prop];
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> val === <span class="hljs-string">&apos;object&apos;</span>) {
+                    target[prop] = <span class="hljs-built_in">Array</span>.isArray(val) ? [] : {};
+                    extend(target[prop], val);
+                } <span class="hljs-keyword">else</span> {
+                    target[prop] = val;
+                }
+            }
+        }
+    };
+
+    <span class="hljs-comment">// &#x539F;&#x578B;&#x7EE7;&#x627F;.................................</span>
+    inherit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">Child, Parent</span>) </span>{
+        <span class="hljs-keyword">var</span> Temp = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">this</span>.constructor = Child;
+        };
+        Temp.prototype = Parent.prototype;
+        Child.prototype = <span class="hljs-keyword">new</span> Temp();
+    };
+
+    <span class="hljs-comment">// &#x83B7;&#x53D6;&#x591A;&#x8FB9;&#x5F62;&#x4E0A;&#x6700;&#x9760;&#x8FD1;&#x5706;&#x5F62;&#x7684;&#x70B9;...................</span>
+    getPolygonPointClosestToCircle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">polygon, circle</span>) </span>{
+        <span class="hljs-keyword">var</span> min = <span class="hljs-literal">Infinity</span>,
+            closestPoint, length;
+
+        polygon.points.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point</span>) </span>{
+            length = <span class="hljs-built_in">Math</span>.pow(circle.x - point.x, <span class="hljs-number">2</span>) + <span class="hljs-built_in">Math</span>.pow(circle.y - point.y, <span class="hljs-number">2</span>);
+            <span class="hljs-keyword">if</span> (length &lt; min) {
+                min = length;
+                closestPoint = point;
+            }
+        });
+
+        <span class="hljs-keyword">return</span> closestPoint;
+    };
+
+    <span class="hljs-comment">// &#x5706;&#x5F62;&#x78B0;&#x649E;&#x5706;&#x5F62;...........................................</span>
+    circleCollidesWithCircle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">c1, c2</span>) </span>{
+        <span class="hljs-keyword">var</span> distace = <span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-built_in">Math</span>.pow(c1.x - c2.x, <span class="hljs-number">2</span>) + 
+                                <span class="hljs-built_in">Math</span>.pow(c1.y - c2.y, <span class="hljs-number">2</span>));
+        <span class="hljs-keyword">return</span> {
+            axis: (<span class="hljs-keyword">new</span> Vector(c1.x - c2.x, c1.y - c2.y)).normalize(),
+            overlap: c1.radius + c2.radius - distace
+        }
+    };
+
+    <span class="hljs-comment">// &#x591A;&#x8FB9;&#x5F62;&#x78B0;&#x649E;&#x591A;&#x8FB9;&#x5F62;.........................................</span>
+    polygonCollidesWithPolygon = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">p1, p2</span>) </span>{
+        <span class="hljs-keyword">var</span> axes = p1.getAxes();
+        axes = axes.concat(p2.getAxes());
+        <span class="hljs-keyword">return</span> p1.minimumTranslationVector(axes, p2);
+    };
+
+    <span class="hljs-comment">// &#x591A;&#x8FB9;&#x5F62;&#x548C;&#x5706;&#x5F62;&#x4E4B;&#x95F4;&#x7684;&#x78B0;&#x649E;................................</span>
+    polygonCollidesWithCircle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">polygon, circle</span>) </span>{
+        <span class="hljs-keyword">var</span> axes = polygon.getAxes(),
+            closestPoint = getPolygonPointClosestToCircle(polygon, circle),
+            v1, v2;
+
+        v1 = <span class="hljs-keyword">new</span> Vector(closestPoint.x, closestPoint.y);
+        v2 = <span class="hljs-keyword">new</span> Vector(circle.x, circle.y);
+
+        axes.push(v1.edge(v2).normalize());
+
+        <span class="hljs-keyword">return</span> polygon.minimumTranslationVector(axes, circle);
+    };
+
+    <span class="hljs-comment">// &#x56FE;&#x5F62;&#x548C;&#x76F4;&#x7EBF;&#x4E4B;&#x95F4;&#x7684;&#x78B0;&#x649E;...................................</span>
+    shapeCollideswithLine = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">shape, line</span>) </span>{
+        <span class="hljs-keyword">var</span> axes = line.getAxes();
+        <span class="hljs-keyword">return</span> shape.minimumTranslationVector(axes, line);
+    };
+
+    <span class="hljs-comment">// &#x77E2;&#x91CF;.....................................</span>
+    Vector = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point</span>) </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">arguments</span>.length === <span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">this</span>.x = point.x;
+            <span class="hljs-keyword">this</span>.y = point.y;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>.x = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>];
+            <span class="hljs-keyword">this</span>.y = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>];
+        }
+    };
+
+    extend(Vector.prototype, {
+        getMagnitude: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.sqrt(<span class="hljs-built_in">Math</span>.pow(<span class="hljs-keyword">this</span>.x, <span class="hljs-number">2</span>) + <span class="hljs-built_in">Math</span>.pow(<span class="hljs-keyword">this</span>.y, <span class="hljs-number">2</span>));
+        },
+        add: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">vector</span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Vector(<span class="hljs-keyword">this</span>.x + vector.x, <span class="hljs-keyword">this</span>.y + vector.y);
+        },
+        subtract: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">vector</span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Vector(<span class="hljs-keyword">this</span>.x - vector.x, <span class="hljs-keyword">this</span>.y - vector.y);
+        },
+        dotProduct: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">vector</span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.x * vector.x + <span class="hljs-keyword">this</span>.y * vector.y;
+        },
+        edge: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">vector</span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.subtract(vector);
+        },
+        prependicular: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Vector(<span class="hljs-keyword">this</span>.y, -<span class="hljs-keyword">this</span>.x);
+        },
+
+        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5355;&#x4F4D;&#x5411;&#x91CF;</span>
+        normalize: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> v = <span class="hljs-keyword">new</span> Vector(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>),
+                m = <span class="hljs-keyword">this</span>.getMagnitude();
+            <span class="hljs-keyword">if</span> (m !== <span class="hljs-number">0</span>) {
+                v.x = <span class="hljs-keyword">this</span>.x / m;
+                v.y = <span class="hljs-keyword">this</span>.y / m;
+            }
+            <span class="hljs-keyword">return</span> v;
+        },
+
+        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x6CD5;&#x5411;&#x91CF;</span>
+        normal: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.prependicular().normalize();
+        }
+    });
+
+    <span class="hljs-comment">// &#x6295;&#x5F71;.....................................</span>
+    Projection = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">min, max</span>) </span>{
+        <span class="hljs-keyword">this</span>.min = min;
+        <span class="hljs-keyword">this</span>.max = max;
+    };
+
+    Projection.prototype.overlap = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">projection</span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.min(<span class="hljs-keyword">this</span>.max, projection.max) - <span class="hljs-built_in">Math</span>.max(<span class="hljs-keyword">this</span>.min, projection.min);
+    };
+
+    <span class="hljs-comment">// &#x5F62;&#x72B6;.....................................</span>
+    Shape = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{};
+
+    extend(Shape.prototype, {
+        collidesWith: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">anotherShape</span>) </span>{
+            <span class="hljs-keyword">var</span> axes = <span class="hljs-keyword">this</span>.getAxes().concat(anotherShape.getAxes()),
+                mtv;
+
+            <span class="hljs-keyword">return</span> mtv.overlap &gt; <span class="hljs-number">0</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+        },
+
+        <span class="hljs-comment">// &#x68C0;&#x67E5;&#x6BCF;&#x4E2A;&#x8F74;&#x4E0A;&#x6295;&#x5F71;&#x7684;&#x95F4;&#x9694;&#xFF0C;&#x5B58;&#x5728;&#x8FD4;&#x56DE;&#x6700;&#x5C0F;&#x504F;&#x79FB;&#x91CF;</span>
+        minimumTranslationVector: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">axes, anotherShape</span>) </span>{
+            <span class="hljs-keyword">var</span> minOverlap = <span class="hljs-literal">Infinity</span>,
+                i, axis, projection1, projection2, 
+                overlap, axisWithSmallOverlap;
+
+            <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; axes.length; i++) {
+                axis = axes[i];
+                projection1 = <span class="hljs-keyword">this</span>.project(axis);
+                projection2 = anotherShape.project(axis);
+                overlap = projection1.overlap(projection2);
+                <span class="hljs-keyword">if</span> (overlap &lt; minOverlap) {
+                    axisWithSmallOverlap = axis;
+                    minOverlap = overlap;
+                }
+                <span class="hljs-keyword">if</span> (overlap &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;
+            }
+
+            <span class="hljs-keyword">return</span> {
+                axis: axisWithSmallOverlap,
+                overlap: minOverlap
+            };
+        },
+
+        isPointInPath: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context, x, y</span>) </span>{
+            <span class="hljs-keyword">this</span>.createPath(context);
+            <span class="hljs-keyword">return</span> context.isPointInPath(x, y);
+        },
+
+        run: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">dTime</span>) </span>{
+            <span class="hljs-keyword">this</span>.velocity.x = <span class="hljs-keyword">this</span>.lastVelocity.x;
+            <span class="hljs-keyword">this</span>.velocity.y = <span class="hljs-keyword">this</span>.lastVelocity.y;
+            <span class="hljs-keyword">this</span>.move(<span class="hljs-keyword">this</span>.velocity.x * dTime / <span class="hljs-number">1000</span>, <span class="hljs-keyword">this</span>.velocity.y * dTime  / <span class="hljs-number">1000</span>);
+        },
+
+        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x8F74;&#x7EBF;</span>
+        getAxes: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;getAxes() not implemented&apos;</span>;
+        },
+
+        <span class="hljs-comment">// &#x83B7;&#x53D6;&#x5728;&#x67D0;&#x4E00;&#x8F74;&#x7EBF;&#x4E0A;&#x7684;&#x6295;&#x5F71;</span>
+        project: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">axis</span>) </span>{
+            <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;project(axis) not implemented&apos;</span>;
+        },
+
+        move: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;move(x, y) not implemented&apos;</span>;
+        }
+    });
+
+    <span class="hljs-comment">// &#x70B9;..........................................</span>
+    Point = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point</span>) </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">arguments</span>.length === <span class="hljs-number">1</span>) {
+            <span class="hljs-keyword">this</span>.x = point.x;
+            <span class="hljs-keyword">this</span>.y = point.y;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>.x = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>];
+            <span class="hljs-keyword">this</span>.y = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>];
+        }
+    };
+
+    <span class="hljs-comment">// &#x591A;&#x8FB9;&#x5F62;......................................</span>
+    Polygon = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">points, velocity</span>) </span>{
+        <span class="hljs-keyword">this</span>.points = points || [];
+        <span class="hljs-keyword">this</span>.lastVelocity = velocity || {
+            x: <span class="hljs-number">10</span>,
+            y: <span class="hljs-number">10</span>
+        };
+        <span class="hljs-keyword">this</span>.velocity = {};
+        <span class="hljs-keyword">this</span>.velocity.x = <span class="hljs-keyword">this</span>.lastVelocity.x;
+        <span class="hljs-keyword">this</span>.velocity.y = <span class="hljs-keyword">this</span>.lastVelocity.y;
+    };
+
+    inherit(Polygon, Shape);
+
+    extend(Polygon.prototype, {
+        collidesWith: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">anotherShape</span>) </span>{
+            <span class="hljs-keyword">if</span> (anotherShape <span class="hljs-keyword">instanceof</span> Circle) {
+                <span class="hljs-keyword">return</span> polygonCollidesWithCircle(<span class="hljs-keyword">this</span>, anotherShape);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (anotherShape <span class="hljs-keyword">instanceof</span> Polygon) {
+                <span class="hljs-keyword">return</span> polygonCollidesWithPolygon(<span class="hljs-keyword">this</span>, anotherShape);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (anotherShape <span class="hljs-keyword">instanceof</span> Line) {
+                <span class="hljs-keyword">return</span> shapeCollideswithLine(<span class="hljs-keyword">this</span>, anotherShape);
+            }
+        },
+        project: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">axis</span>) </span>{
+            <span class="hljs-keyword">var</span> scalars = [],
+                v = <span class="hljs-keyword">new</span> Vector();
+            <span class="hljs-keyword">this</span>.points.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point</span>) </span>{
+                v.x = point.x;
+                v.y = point.y;
+                scalars.push(v.dotProduct(axis));
+            });
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Projection(<span class="hljs-built_in">Math</span>.min.apply(<span class="hljs-built_in">Math</span>, scalars),
+                                  <span class="hljs-built_in">Math</span>.max.apply(<span class="hljs-built_in">Math</span>, scalars));
+        },
+        getAxes: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> v1 = <span class="hljs-keyword">new</span> Vector(),
+                v2 = <span class="hljs-keyword">new</span> Vector(),
+                axes = [];
+
+            <span class="hljs-keyword">this</span>.points.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point, i, points</span>) </span>{
+                v1.x = point.x;
+                v1.y = point.y;
+
+                <span class="hljs-keyword">if</span> (i + <span class="hljs-number">1</span> &lt; points.length) {
+                    v2.x = points[i + <span class="hljs-number">1</span>].x;
+                    v2.y = points[i + <span class="hljs-number">1</span>].y;
+                } <span class="hljs-keyword">else</span> {
+                    v2.x = points[<span class="hljs-number">0</span>].x;
+                    v2.y = points[<span class="hljs-number">0</span>].y;
+                }
+
+                axes.push(v1.edge(v2).normal());
+            });
+
+            <span class="hljs-keyword">return</span> axes;
+        },
+        centroid: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">var</span> result = {
+                x: <span class="hljs-number">0</span>,
+                y: <span class="hljs-number">0</span>
+            },
+            n = <span class="hljs-keyword">this</span>.points.length;
+            <span class="hljs-keyword">this</span>.points.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point</span>) </span>{
+                result.x += point.x;
+                result.y += point.y;
+            });
+            result.x /= n;
+            result.y /= n;
+            <span class="hljs-keyword">return</span> result;
+        },
+        addPoint: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x, y</span>) </span>{
+            <span class="hljs-keyword">this</span>.points.push(<span class="hljs-keyword">new</span> Point(x, y));
+        },
+        move: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">dX, dY</span>) </span>{
+            <span class="hljs-keyword">this</span>.points.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point</span>) </span>{
+                point.x += dX;
+                point.y += dY;
+            });
+        },
+        createPath: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
+            context.beginPath();
+            <span class="hljs-keyword">this</span>.points.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point</span>) </span>{
+                context.lineTo(point.x, point.y);
+            });
+            context.closePath;
+        },
+        draw: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
+            <span class="hljs-keyword">this</span>.createPath(context);
+            context.fill();
+        }
+    });
+
+    <span class="hljs-comment">// &#x5706;&#x5F62;.......................................</span>
+    Circle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">x, y, radius, velocity</span>) </span>{
+        <span class="hljs-keyword">this</span>.x = x;
+        <span class="hljs-keyword">this</span>.y = y;
+        <span class="hljs-keyword">this</span>.radius = radius;
+        <span class="hljs-keyword">this</span>.lastVelocity = velocity || {
+            x: <span class="hljs-number">10</span>,
+            y: <span class="hljs-number">10</span>
+        };
+        <span class="hljs-keyword">this</span>.velocity = {};
+        <span class="hljs-keyword">this</span>.velocity.x = <span class="hljs-keyword">this</span>.lastVelocity.x;
+        <span class="hljs-keyword">this</span>.velocity.y = <span class="hljs-keyword">this</span>.lastVelocity.y;
+    };
+
+    inherit(Circle, Shape);
+
+    extend(Circle.prototype, {
+        collidesWith: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">anotherShape</span>) </span>{
+            <span class="hljs-keyword">if</span> (anotherShape <span class="hljs-keyword">instanceof</span> Circle) {
+                <span class="hljs-keyword">return</span> circleCollidesWithCircle(<span class="hljs-keyword">this</span>, anotherShape);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (anotherShape <span class="hljs-keyword">instanceof</span> Polygon) {
+                <span class="hljs-keyword">return</span> polygonCollidesWithCircle(anotherShape, <span class="hljs-keyword">this</span>);
+            } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (anotherShape <span class="hljs-keyword">instanceof</span> Line) {
+                <span class="hljs-keyword">return</span> shapeCollideswithLine(<span class="hljs-keyword">this</span>, anotherShape);
+            }
+        },
+        getAxes: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{ <span class="hljs-keyword">return</span>; },
+        project: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">axis</span>) </span>{
+            <span class="hljs-keyword">var</span> dotProduct = <span class="hljs-keyword">new</span> Vector(<span class="hljs-keyword">this</span>.x, <span class="hljs-keyword">this</span>.y).dotProduct(axis);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Projection(dotProduct - <span class="hljs-keyword">this</span>.radius, dotProduct + <span class="hljs-keyword">this</span>.radius);
+        },
+        centroid: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> {
+                x: <span class="hljs-keyword">this</span>.x,
+                y: <span class="hljs-keyword">this</span>.y
+            }
+        },
+        createPath: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
+            context.beginPath();
+            context.arc(<span class="hljs-keyword">this</span>.x, <span class="hljs-keyword">this</span>.y, <span class="hljs-keyword">this</span>.radius, <span class="hljs-number">0</span>, <span class="hljs-built_in">Math</span>.PI * <span class="hljs-number">2</span>, <span class="hljs-literal">false</span>);
+            context.closePath();
+        },
+        draw: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">context</span>) </span>{
+            <span class="hljs-keyword">this</span>.createPath(context);
+            context.fill();
+        },
+        move: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">dX, dY</span>) </span>{
+            <span class="hljs-keyword">this</span>.x += dX;
+            <span class="hljs-keyword">this</span>.y += dY;
+        }
+    });
+
+    <span class="hljs-comment">// &#x76F4;&#x7EBF;</span>
+    Line = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">point, vector</span>) </span>{
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">arguments</span>.length === <span class="hljs-number">2</span>) {
+            <span class="hljs-keyword">this</span>.x = point.x;
+            <span class="hljs-keyword">this</span>.y = point.y;
+            <span class="hljs-keyword">this</span>.vector = vector;
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">this</span>.x = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">0</span>];
+            <span class="hljs-keyword">this</span>.y = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">1</span>];
+            <span class="hljs-keyword">this</span>.vector = <span class="hljs-built_in">arguments</span>[<span class="hljs-number">2</span>];
+        }
+    };
+
+    inherit(Line, Shape);
+
+    extend(Line.prototype, {
+        getAxes: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> [<span class="hljs-keyword">this</span>.vector.normal()];
+        },
+        project: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">axis</span>) </span>{
+            <span class="hljs-keyword">var</span> n = axis.dotProduct(<span class="hljs-keyword">this</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Projection(n, n + <span class="hljs-number">1</span>);
+        },
+        centroid: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">return</span> {
+                x: <span class="hljs-keyword">this</span>.x,
+                y: <span class="hljs-keyword">this</span>.y
+            }
+        }
+    });
+
+    global.Circle = Circle;
+    global.Polygon = Polygon;
+    global.Point = Point;
+    global.Shape = Shape;
+    global.Vector = Vector;
+    global.Line = Line;
+})(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.document);
+
+(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">global, doc</span>) </span>{
+    <span class="hljs-keyword">var</span> canvas = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;mycanvas&apos;</span>),
+        cxt = canvas.getContext(<span class="hljs-string">&apos;2d&apos;</span>),
+        QuadTree = global.QuadTree,
+        Rect = global.Rect,
+        w = <span class="hljs-number">600</span>,
+        h = <span class="hljs-number">300</span>,
+        rectArr = [],
+        tree, i, len, time;
+
+    <span class="hljs-comment">// &#x8BBE;&#x7F6E;canvas&#x5C3A;&#x5BF8;</span>
+    canvas.setAttribute(<span class="hljs-string">&apos;width&apos;</span>, w);
+    canvas.setAttribute(<span class="hljs-string">&apos;height&apos;</span>, h);
+
+    cxt.fillStyle = <span class="hljs-string">&apos;#000&apos;</span>;
+
+    <span class="hljs-keyword">var</span> windowToCanvas = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">canvas, x, y</span>) </span>{
+        <span class="hljs-keyword">var</span> bounds = canvas.getBoundingClientRect();
+
+        <span class="hljs-keyword">return</span> {
+            x: (x - bounds.left) * (canvas.width / bounds.width),
+            y: (y - bounds.top) * (canvas.height / bounds.height)
+        };
+    };
+
+    <span class="hljs-keyword">var</span> polygonPoints = [
+            [<span class="hljs-keyword">new</span> Point(<span class="hljs-number">250</span>, <span class="hljs-number">130</span>), <span class="hljs-keyword">new</span> Point(<span class="hljs-number">250</span>, <span class="hljs-number">250</span>),
+             <span class="hljs-keyword">new</span> Point(<span class="hljs-number">350</span>, <span class="hljs-number">250</span>), <span class="hljs-keyword">new</span> Point(<span class="hljs-number">400</span>, <span class="hljs-number">150</span>)],
+            [<span class="hljs-keyword">new</span> Point(<span class="hljs-number">410</span>, <span class="hljs-number">130</span>), <span class="hljs-keyword">new</span> Point(<span class="hljs-number">410</span>, <span class="hljs-number">200</span>),
+             <span class="hljs-keyword">new</span> Point(<span class="hljs-number">490</span>, <span class="hljs-number">100</span>), <span class="hljs-keyword">new</span> Point(<span class="hljs-number">450</span>, <span class="hljs-number">10</span>)]
+        ],
+        c1 = <span class="hljs-keyword">new</span> Circle(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">40</span>, {x: <span class="hljs-number">100</span>, y: <span class="hljs-number">100</span>}),
+        c2 = <span class="hljs-keyword">new</span> Circle(<span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">20</span>),
+        p1 = <span class="hljs-keyword">new</span> Polygon(polygonPoints[<span class="hljs-number">0</span>], {x: <span class="hljs-number">50</span>, y: <span class="hljs-number">80</span>}),
+        p2 = <span class="hljs-keyword">new</span> Polygon(polygonPoints[<span class="hljs-number">1</span>], {x: <span class="hljs-number">-30</span>, y: <span class="hljs-number">-60</span>}),
+        lastLoc = {},
+        shapes = [],
+        shapeBeingDrag;
+
+    shapes.push(p1, p2);
+
+    shapes.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">shape</span>) </span>{
+        shape.draw(cxt);
+    });
+
+    canvas.addEventListener(<span class="hljs-string">&apos;mousedown&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-keyword">var</span> loc = windowToCanvas(<span class="hljs-keyword">this</span>, e.clientX, e.clientY);
+        shapes.every(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">shape</span>) </span>{
+            <span class="hljs-keyword">if</span> (shape.isPointInPath(cxt, loc.x, loc.y)) {
+                shapeBeingDrag = shape;
+                lastLoc.x = loc.x;
+                lastLoc.y = loc.y;
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+            }
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        });
+    });
+
+    canvas.addEventListener(<span class="hljs-string">&apos;mouseup&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+        shapeBeingDrag = <span class="hljs-literal">null</span>;
+    });
+
+    <span class="hljs-keyword">var</span> separate = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">shape, mtv, velocity</span>) </span>{
+        dX = mtv.axis.x * mtv.overlap;
+        dY = mtv.axis.y * mtv.overlap;
+        <span class="hljs-keyword">if</span> (dX * velocity.x &gt; <span class="hljs-number">0</span>) dX = -dX;
+        <span class="hljs-keyword">if</span> (dY * velocity.y &gt; <span class="hljs-number">0</span>) dY = -dY;
+        shape.move(dX, dY);
+    };
+
+    canvas.addEventListener(<span class="hljs-string">&apos;mousemove&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+        <span class="hljs-keyword">var</span> loc, velocity;
+        <span class="hljs-keyword">if</span> (shapeBeingDrag) {
+            cxt.clearRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, w, h);
+
+
+            loc = windowToCanvas(<span class="hljs-keyword">this</span>, e.clientX, e.clientY);
+            velocity = {
+                x: loc.x - lastLoc.x,
+                y: loc.y - lastLoc.y
+            };
+            shapeBeingDrag.move(loc.x - lastLoc.x, loc.y - lastLoc.y);
+            shapes.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">shape, i</span>) </span>{
+                <span class="hljs-keyword">var</span> isCollided = <span class="hljs-literal">false</span>,
+                    j, mtv;
+                <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; shapes.length; j++) {
+                    <span class="hljs-keyword">if</span> (j === i) <span class="hljs-keyword">continue</span>;
+                    mtv = shape.collidesWith(shapes[j]);
+                    isCollided = mtv.overlap &gt; <span class="hljs-number">0</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>;
+                    <span class="hljs-keyword">if</span> (isCollided) <span class="hljs-keyword">break</span>;
+                }
+                <span class="hljs-keyword">if</span> (isCollided) {
+                    separate(shapeBeingDrag, mtv, velocity);
+                    cxt.save();
+                    shape.draw(cxt);
+                    cxt.restore();
+                } <span class="hljs-keyword">else</span> {
+                    shape.draw(cxt);
+                }
+            });
+
+            lastLoc.x = loc.x;
+            lastLoc.y = loc.y;
+        }
+    });
+
+    <span class="hljs-keyword">var</span> bounce = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">mtv, collider, collidee</span>) </span>{
+        <span class="hljs-keyword">var</span> centroid1 = <span class="hljs-keyword">new</span> Vector(collider.centroid()),
+            centroid2 = <span class="hljs-keyword">new</span> Vector(collidee.centroid()),
+            centroidVector = centroid1.subtract(centroid2),
+            dotProductRatio, lastVelocity;
+
+        <span class="hljs-keyword">if</span> (mtv.axis.dotProduct(centroidVector) &lt; <span class="hljs-number">0</span>) {
+            mtv.axis.x = -mtv.axis.x;
+            mtv.axis.y = -mtv.axis.y;
+        }
+
+        <span class="hljs-keyword">if</span> (mtv.axis.dotProduct(collider.velocity) &gt; <span class="hljs-number">0</span>) {
+            <span class="hljs-keyword">return</span>;
+        }
+
+        dotProductRatio = <span class="hljs-built_in">Math</span>.abs(<span class="hljs-number">2</span> * mtv.axis.dotProduct(collider.velocity) / 
+            mtv.axis.dotProduct(mtv.axis));
+
+        mtv.axis.x *= dotProductRatio;
+        mtv.axis.y *= dotProductRatio;
+
+        lastVelocity = mtv.axis.add(collider.velocity);
+
+        collider.lastVelocity.x = lastVelocity.x;
+        collider.lastVelocity.y = lastVelocity.y;
+    };
+
+    <span class="hljs-keyword">var</span> bounds = [
+        <span class="hljs-keyword">new</span> Line(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">new</span> Vector(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)),
+        <span class="hljs-keyword">new</span> Line(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">new</span> Vector(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)),
+        <span class="hljs-keyword">new</span> Line(<span class="hljs-number">0</span>, h, <span class="hljs-keyword">new</span> Vector(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>)),
+        <span class="hljs-keyword">new</span> Line(w, <span class="hljs-number">0</span>, <span class="hljs-keyword">new</span> Vector(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>))
+    ];
+
+    draw = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        cxt.clearRect(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, w, h);
+        shapes.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">shape, i</span>) </span>{
+            <span class="hljs-keyword">var</span> mtv, j;
+            shape.run(<span class="hljs-number">16</span>);
+
+            <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; shapes.length; j++) {
+                <span class="hljs-keyword">if</span> (j === i) <span class="hljs-keyword">continue</span>;
+                mtv = shape.collidesWith(shapes[j]);
+                <span class="hljs-keyword">if</span> (mtv.overlap &gt; <span class="hljs-number">0</span>) {
+                    separate(shape, mtv, shape.velocity);
+                    bounce(mtv, shape, shapes[j]);
+                }
+            }
+
+            <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; bounds.length; j++) {
+                mtv = shape.collidesWith(bounds[j]);
+                <span class="hljs-keyword">if</span> (mtv.overlap &gt; <span class="hljs-number">0</span>) {
+                    separate(shape, mtv, shape.velocity);
+                    bounce(mtv, shape, bounds[j]);
+                }
+            }
+
+            shape.draw(cxt);
+        });
+        requestAnimationFrame(draw);
+    };
+
+    <span class="hljs-keyword">var</span> startButton = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;start-button&apos;</span>);
+    startButton.addEventListener(<span class="hljs-string">&apos;click&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        requestAnimationFrame(draw);
+    });
+
+})(<span class="hljs-keyword">this</span>, <span class="hljs-keyword">this</span>.document);
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="judge.html" class="navigation navigation-prev " aria-label="Previous page: JS的客户端判断">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../cssAsset/" class="navigation navigation-next " aria-label="Next page: CSS">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"JS检测函数","level":"1.3.2","depth":2,"next":{"title":"CSS","level":"1.4","depth":1,"path":"cssAsset/README.md","ref":"cssAsset/README.md","articles":[{"title":"css初始化","level":"1.4.1","depth":2,"path":"cssAsset/reset.md","ref":"cssAsset/reset.md","articles":[]},{"title":"CSS3属性与变量","level":"1.4.2","depth":2,"path":"cssAsset/attribute.md","ref":"cssAsset/attribute.md","articles":[]},{"title":"css计量单位","level":"1.4.3","depth":2,"path":"cssAsset/unit.md","ref":"cssAsset/unit.md","articles":[]},{"title":"String & Text","level":"1.4.4","depth":2,"path":"cssAsset/str.md","ref":"cssAsset/str.md","articles":[]}]},"previous":{"title":"JS的客户端判断","level":"1.3.1","depth":2,"path":"js/judge.md","ref":"js/judge.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","favicon"],"styles":{"website":"./styles/website.css"},"pluginsConfig":{"github":{"url":"https://github.com/Scorpio-li/ScorpioBook"},"splitter":{},"search":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"donate":{"alipay":"./source/images/donate.png","alipayText":" ","button":"赞赏","title":"","wechat":"","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"favicon":{"shortcut":"./source/images/favicon.jpg","bookmark":"./source/images/favicon.jpg","appleTouch":"./source/images/apple-touch-icon.jpg","appleTouchMore":{"120x120":"./source/images/apple-touch-icon.jpg","180x180":"./source/images/apple-touch-icon.jpg"}},"github-buttons":{"buttons":[{"user":"Lzl","repo":"glory","type":"star","size":"small","count":true}]},"expandable-chapters-small":{},"sharing":{"qq":false,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":false,"facebook":false,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":false,"messenger":false,"line":false,"vk":false,"pocket":false,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","author":"Lzl","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Scorpio's Glory","language":"zh-hans","links":{"sidebar":{"我的狗窝":"https://blankj.com"}},"gitbook":"3.2.3","description":"select * from learn"},"file":{"path":"js/check.md","mtime":"2019-09-11T10:34:09.928Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T14:48:52.753Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
