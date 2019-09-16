@@ -105,6 +105,14 @@ $ gitbook build // 生成网页不启动服务器
 
 - 然后在终端输入 gitbook install ./ 即可。
 
+## 发布
+
+```js
+gitbook build // 生成_book文件夹
+
+npm run deploy // 将_book发布到gh-pages分支上
+```
+
 ## 文档链接
 
 - [GitBook 简明教程](http://www.chengweiyang.cn/gitbook)
