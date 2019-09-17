@@ -34,8 +34,13 @@
 * [Project(项目中常见问题)](project/README.md)
     * [css-standard(BEM命名规范入门)](project/css-standars.md)
     * [form(表单)](project/form.md)
+    * [npm与package.json快速入门](project/package.md)
 
 * [HTML](html/README.md)
     * [template(页面模板)](html/template.md)
+    * [Jade模板引擎](html/jade.md)
+
+* [Node](node/README.md)
+    * [node-express框架](node/express.md)
 
 
