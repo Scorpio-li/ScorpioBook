@@ -14,12 +14,10 @@
 
 * [Gitbook介绍](README.md)
 
-* [Common functional methods](functional/README.md)
-    * [正则表达式](functional/regular.md)
-    * [Time](functional/time.md)
-    * [URL](functional/url.md)
-    * [Random](functional/random.md)
-    * [text(文本)](functional/text.md)
+* [HTML](html/README.md)
+    * [template(页面模板)](html/template.md)
+    * [Jade模板引擎](html/jade.md)
+    * [编译器中Emmet使用语法](html/emmet.md)
 
 * [JS](js/README.md)
     * [JS的客户端判断](js/judge.md)
@@ -31,14 +29,18 @@
     * [css计量单位](cssAsset/unit.md)
     * [String & Text](cssAsset/str.md)
 
+* [Common functional methods](functional/README.md)
+    * [正则表达式](functional/regular.md)
+    * [Time](functional/time.md)
+    * [URL](functional/url.md)
+    * [Random](functional/random.md)
+    * [text(文本)](functional/text.md)
+
 * [Project(项目中常见问题)](project/README.md)
     * [css-standard(BEM命名规范入门)](project/css-standars.md)
     * [form(表单)](project/form.md)
     * [npm与package.json快速入门](project/package.md)
-
-* [HTML](html/README.md)
-    * [template(页面模板)](html/template.md)
-    * [Jade模板引擎](html/jade.md)
+    * [清除浮动方法总结](project/clear-floating.md)
 
 * [Node](node/README.md)
     * [node-express框架](node/express.md)
