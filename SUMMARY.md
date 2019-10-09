@@ -34,7 +34,8 @@
     * [Time（时间）](functional/time.md)
     * [browser（浏览器）](functional/browser.md)
     * [Random](functional/random.md)
-    * [text(文本)](functional/text.md)
+    * [String(字符串)](functional/text.md)
+    * [Arr(数组)](functional/arr.md)
 
 * [Project(项目中常见问题)](project/README.md)
     * [css-standard(BEM命名规范入门)](project/css-standars.md)
