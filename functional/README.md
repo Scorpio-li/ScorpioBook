@@ -4,6 +4,6 @@
 
 ## 时间相关（time）
 
-## 浏览器url相关（url）
+## 浏览器相关（browser）
 
 ## 随机函数（random）

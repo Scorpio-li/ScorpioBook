@@ -1,4 +1,7 @@
+# URL
+
 ## 1. parseQueryString(url参数转对象)
+
 ```js
 /**
  * 
@@ -68,3 +71,51 @@ function parseURL(url) {
     };
 }
 ```
+
+## 4. 获取URL中的参数
+
+- 简单版: 不兼容ie
+
+```js
+var urlParams = new URLSearchParams('?post=1234&action=edit');
+console.log(urlParams.get('action')); // "edit"
+```
+
+- 复杂版：
+
+```js
+function getUrlParams(param){
+  // 有赖于浏览器环境， window.location.search 是浏览器函数
+  // 意思是:设置或返回从问号 (?) 开始的 URL（查询部分）。       
+  var query = window.location.search.substring(1);       
+  var vars = query.split("&");       
+  for (var i=0;i<vars.length;i++) {               
+    var pair = vars[i].split("=");               
+    if(pair[0] == param){return pair[1];}       
+  }       
+  return(false);
+}
+```
+
+
+# Browser Type
+
+## 1. 手机端判断浏览器类型
+
+- 目前主要支持 安卓 & 苹果 & ipad & 微信 & 支付宝 & 是否是手机端。
+
+```js
+BrowserInfo = {      
+  isAndroid: Boolean(navigator.userAgent.match(/android/ig)),      
+  isIphone: Boolean(navigator.userAgent.match(/iphone|ipod/ig)),      
+  isIpad: Boolean(navigator.userAgent.match(/ipad/ig)),      
+  isWeixin: Boolean(navigator.userAgent.match(/MicroMessenger/ig)),      
+  isAli: Boolean(navigator.userAgent.match(/AlipayClient/ig)),
+  isPhone: Boolean(/(iPhone|iPad|iPod|iOS|Android)/i.test(navigator.userAgent))
+}
+```
+
+
+
+
+

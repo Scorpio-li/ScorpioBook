@@ -22,7 +22,6 @@
 * [JS](js/README.md)
     * [JS的客户端判断](js/judge.md)
     * [JS检测函数](js/check.md)
-    * [JS时间函数](js/time.md)
 
 * [CSS](cssAsset/README.md)
     * [css初始化](cssAsset/reset.md)
@@ -32,8 +31,8 @@
 
 * [Common functional methods](functional/README.md)
     * [正则表达式](functional/regular.md)
-    * [Time](functional/time.md)
-    * [URL](functional/url.md)
+    * [Time（时间）](functional/time.md)
+    * [browser（浏览器）](functional/browser.md)
     * [Random](functional/random.md)
     * [text(文本)](functional/text.md)
 
