@@ -36,6 +36,7 @@
     * [Random](functional/random.md)
     * [String(字符串)](functional/text.md)
     * [Arr(数组)](functional/arr.md)
+    * [Number(数字)](functional/number.md)
 
 * [Project(项目中常见问题)](project/README.md)
     * [css-standard(BEM命名规范入门)](project/css-standars.md)
