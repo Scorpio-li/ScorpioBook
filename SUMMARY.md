@@ -29,7 +29,7 @@
     * [css计量单位](cssAsset/unit.md)
     * [String & Text](cssAsset/str.md)
 
-* [Common functional methods](functional/README.md)
+* [Common functional methods（常见方法）](functional/README.md)
     * [正则表达式](functional/regular.md)
     * [Time（时间）](functional/time.md)
     * [browser（浏览器）](functional/browser.md)
@@ -50,5 +50,6 @@
 * [Linux](Linux/README.md)
     * [常用命令](Linux/commands.md)
 
-
+* [Algorithm(算法)](algorithm/README.md)
+    * [排序（sort）](algorithm/sort.md)
 
