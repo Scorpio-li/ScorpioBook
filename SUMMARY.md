@@ -15,10 +15,13 @@
 * [Gitbook介绍](README.md)
 
 * [HTML](html/README.md)
-    * [template(页面模板)](html/template.md)
-    * [Jade模板引擎](html/jade.md)
+    * [template(页面模板)](html/template/README.md)
+        * [template标准模板](html/template/template.md)
+        * [Jade模板引擎](html/template/jade.md)
+    * [标签（label）](html/label/README.md)
+        * [video标签](html/label/video.md)
     * [编译器中Emmet使用语法](html/emmet.md)
-
+    
 * [JS](js/README.md)
     * [JS的客户端判断](js/judge.md)
     * [JS检测函数](js/check.md)
