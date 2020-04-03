@@ -21,18 +21,25 @@
     * [标签（label）](html/label/README.md)
         * [video标签](html/label/video.md)
     * [编译器中Emmet使用语法](html/emmet.md)
+    * [布局（layout）](html/layout/README.md)
+        * [flex布局](html/layout/flex.md)
+        * [rem布局适配](html/layout/rem.md)
     
 * [JS](js/README.md)
     * [JS的客户端判断](js/judge.md)
     * [JS检测函数](js/check.md)
+    * [ES系列](js/es/README.md)
+        * [ES6总结](js/es/es6.md)
 
 * [CSS](cssAsset/README.md)
     * [css初始化](cssAsset/reset.md)
     * [CSS3属性与变量](cssAsset/attribute.md)
     * [css计量单位](cssAsset/unit.md)
     * [String & Text](cssAsset/str.md)
+
 * [Interview](interview/README.md)
     * [面试题](interview/questions.md)
+
 * [Common functional methods（常见方法）](functional/README.md)
     * [正则表达式](functional/regular.md)
     * [Time（时间）](functional/time.md)
