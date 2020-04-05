@@ -28,8 +28,13 @@
 * [JS](js/README.md)
     * [JS的客户端判断](js/judge.md)
     * [JS检测函数](js/check.md)
+    * [JS数组操作](js/array/README.md)
+        * [基本操作](js/array/base.md)
+    * [JS弹窗总结](js/popup.md)
+    * [JS页面跳转](js/page-jump.md)
     * [ES系列](js/es/README.md)
         * [ES6总结](js/es/es6.md)
+    * [JS插件](js/plug-in.md)
 
 * [CSS](cssAsset/README.md)
     * [css初始化](cssAsset/reset.md)
@@ -54,6 +59,7 @@
     * [form(表单)](project/form.md)
     * [npm与package.json快速入门](project/package.md)
     * [清除浮动方法总结](project/clear-floating.md)
+    * [浏览器兼容](project/browser-compatibility.md)
 
 * [Node](node/README.md)
     * [node-express框架](node/express.md)
@@ -63,4 +69,9 @@
 
 * [Algorithm(算法)](algorithm/README.md)
     * [排序（sort）](algorithm/sort.md)
+* [Code Edit(编辑器)](codeEdit/README.md)
+    * [Sublime](codeEdit/README.md)
+        * [Sublime快捷键](codeEdit/sublime/shortcuts.md)
+        * [Sublime插件](codeEdit/sublime/plug-in.md)
+
 
