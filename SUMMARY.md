@@ -30,6 +30,10 @@
     * [JS检测函数](js/check.md)
     * [JS数组操作](js/array/README.md)
         * [基本操作](js/array/base.md)
+        * [特殊操作](js/array/special.md)
+    * [JS字符串操作](js/string/README.md)
+        * [基本操作](js/string/base.md)
+        * [特殊操作](js/string/special.md)
     * [JS弹窗总结](js/popup.md)
     * [JS页面跳转](js/page-jump.md)
     * [ES系列](js/es/README.md)
@@ -41,6 +45,10 @@
     * [CSS3属性与变量](cssAsset/attribute.md)
     * [css计量单位](cssAsset/unit.md)
     * [String & Text](cssAsset/str.md)
+
+* [Comprehensive](comprehensive/README.md)
+    * [前端动画](comprehensive/animation/README.md)
+        * [基础](comprehensive/animation/base.md)
 
 * [Interview](interview/README.md)
     * [面试题](interview/questions.md)
@@ -69,6 +77,7 @@
 
 * [Algorithm(算法)](algorithm/README.md)
     * [排序（sort）](algorithm/sort.md)
+
 * [Code Edit(编辑器)](codeEdit/README.md)
     * [Sublime](codeEdit/README.md)
         * [Sublime快捷键](codeEdit/sublime/shortcuts.md)
