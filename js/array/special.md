@@ -269,7 +269,12 @@ Set|[1, "1", null, undefined, String, String, /a/, /a/, NaN]|对象不去重 NaN
     - $(arr).each(function(i,item){}),
     - $.map(arr,function(i,item){}),
     - $(arr).map(function(i,item){})]
-    
+
+## 数组中如何跳出循环
+
+- 1、for循环中我们使用continue；终止本次循环计入下一个循环，使用break终止整个循环。 (return)?
+
+- 2、而在jquery中 $.each使用return true 终止本次循环计入下一个循环，return false终止整个循环。  函数返回值跟此处无关
 
 ## 1. Array.forEach()
 - 遍历数组里的每个元素，你可以在回调函数里对每个元素进行操作。
@@ -412,8 +417,32 @@ document.writeln("数组的原始值：" + arr + "<br />");//Export:数组的原
 document.writeln("数组的新值：" + arrtooo + "<br />");//Export:数组的新值：One,set Map To,Three
 ```
 
-# 五. 数组操作
+# 五. 分割指定长度的元素数组
 
-## 2. js中如何跳出循环
-- 1、for循环中我们使用continue；终止本次循环计入下一个循环，使用break终止整个循环。 
-- 2、而在jquery中 $.each使用return true 终止本次循环计入下一个循环，return false终止整个循环。  函数返回值跟此处无关
+```js
+const listChunk = (list, size = 1, cacheList = []) => {
+    const tmp = [...list]
+    if (size <= 0) {
+        return cacheList
+    }
+    while (tmp.length) {
+        cacheList.push(tmp.splice(0, size))
+    }
+    return cacheList
+}
+
+console.log(listChunk([1, 2, 3, 4, 5, 6, 7, 8, 9])) // [[1], [2], [3], [4], [5], [6], [7], [8], [9]]
+console.log(listChunk([1, 2, 3, 4, 5, 6, 7, 8, 9], 3)) // [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+console.log(listChunk([1, 2, 3, 4, 5, 6, 7, 8, 9], 0)) // []
+console.log(listChunk([1, 2, 3, 4, 5, 6, 7, 8, 9], -1)) // []
+```
+
+# 六. 获取数组交集
+
+```js
+const intersection = (list, ...args) => list.filter(item => args.every(list => list.includes(item)))
+const intersection = (list, arr) => list.filter(item => arr.includes(item)); // 简化
+console.log(intersection([2, 1], [2, 3])) // [2]
+console.log(intersection([1, 2], [3, 4])) // []
+```
+
