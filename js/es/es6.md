@@ -1,11 +1,17 @@
 # ES6
+
 ## 第1节：ES6的开发环境搭建
+
 1. 建立工程目录：
+
 - 先建立一个项目的工程目录，并在目录下边建立两个文件夹：src和dist
 
     - src：书写ES6代码的文件夹，写的js程序都放在这里。
+
     - dist：利用Babel编译成的ES5代码的文件夹，在HTML页面需要引入的时这里的js文件。
+
 2. 编写index.html：
+
 - 文件夹建立好后，我们新建一个index.html文件。
 
 ```html
@@ -63,16 +69,50 @@ npm install --save-dev babel-preset-es2015 babel-cli
 babel src/index.js -o dist/index.js
 ```
 
-## 第2节：新的声明方式
+## 第2节：新的声明方式（let和const）
 1. var声明：
+
 - var在ES6里是用来声明全局变量的，我们可以先作一个最简单的实例，用var声明一个变量a,然后用console.log进行输出。
 
 2. let局部声明
-- 通过两个简单的例子，我们对var的全局声明有了一定了解。那跟var向对应的是let，它是局部变量声明。let是局部变量声明，let声明只在区块内起作用，外部是不可以调用的。
+
+- 通过两个简单的例子，我们对var的全局声明有了一定了解。那跟var相对应的是let，它是局部变量声明。let是局部变量声明，let声明只在区块内起作用，外部是不可以调用的。
+```js
+if (true) {
+ let a = 40;
+ console.log(a); //40
+}
+console.log(a); // undefined
+```
+```js
+let a = 50;
+let b = 100;
+if (true) {
+ let a = 60;
+ var c = 10;
+ console.log(a/c); // 6
+ console.log(b/c); // 10
+}
+console.log(c); // 10
+console.log(a); // 50
+```
 
 3. const声明常量
-- 在程序开发中，有些变量是希望声明后在业务层就不再发生变化了，简单来说就是从声明开始，这个变量始终不变，就需要用const进行声明。
 
+- 用于给变量赋值一个常量。这个值是无法改变，它是固定的。在程序开发中，有些变量是希望声明后在业务层就不再发生变化了，简单来说就是从声明开始，这个变量始终不变，就需要用const进行声明。
+
+```js
+const a = 50;
+a = 60; // 出错. 你不能改变const的值
+const b = "Constant variable";
+b = "Assigning new value"; // 出错
+
+const LANGUAGES = ['Js', 'Ruby', 'Python', 'Go'];
+LANGUAGES = "Javascript"; // 错误.
+LANGUAGES.push('Java'); // 正常.
+console.log(LANGUAGES); // ['Js', 'Ruby', 'Python', 'Go', 'Java']
+```
+- 无论何时定义const变量，Javascript都会将值的内存地址赋值给变量。在我们的示例中，变量'LANGUAGES'实际上指向了分配给数组的内存。因此，你无法在以后更改变量来指向其他内存位置。在整个程序中它只指向数组。
 
 ## 第3节：变量的解构赋值
 1. 数组的解构赋值：
@@ -166,7 +206,7 @@ console.log(f);
 ## 第4节：扩展运算符和rest运算符
 - 它们可以很好的为我们解决参数和对象数组未知情况下的编程，让我们的代码更健壮和简洁。
 
-1. 对象扩展运算符（…）：
+1. 对象扩展运算符（…）：简单来说，它将元素列表转换为数组，或者将数组转换成元素列表。
 - 当编写一个方法时，我们允许它传入的参数是不确定的。这时候可以使用对象扩展运算符来作参数，看一个简单的列子：
 
 ```js
@@ -175,13 +215,34 @@ function jspang(...arg){
     console.log(arg[1]);
     console.log(arg[2]);
     console.log(arg[3]);
- 
 }
 jspang(1,2,3);
-<!--这时我们看到控制台输出了 1,2,3，undefined，这说明是可以传入多个值，并且就算方法中引用多了也不会报错。-->
+// <!--这时我们看到控制台输出了 1,2,3，undefined，这说明是可以传入多个值，并且就算方法中引用多了也不会报错。-->
 ```
 
 2. 扩展运算符的用处：
+
+    1. 将元素列表转换为数组
+    ```js
+    let SumElements = (...arr) => {
+    console.log(arr); // [10, 20, 40, 60, 90]
+    let sum = 0;
+    for (let element of arr) {
+    sum += element;
+    }
+    console.log(sum); // 220. 
+    }
+    SumElements(10, 20, 40, 60, 90); // 注意我们这里没有传入数组. 而是将元素作为参数传递。
+    ```
+
+    2. 将数组转换为元素列表
+    ```js
+    let arr = [10, 20, 60];
+    Math.max(arr); // 出错. 不接受数组.
+
+    let arr1 = [10, 20, 60];
+    Math.max(...arr1); // 60
+    ```
 
 - 我们先用一个例子说明，我们声明两个数组arr1和arr2，然后我们把arr1赋值给arr2，然后我们改变arr2的值，你会发现arr1的值也改变了，因为我们这是对内存堆栈的引用，而不是真正的赋值。
 
@@ -192,7 +253,7 @@ console.log(arr2);
 arr2.push('shengHongYu');
 console.log(arr1);
 
-<!--控制台输出：-->
+// <!--控制台输出：-->
 ["www", "jspang", "com"]
 ["www", "jspang", "com", "shengHongYu"]
 ```
@@ -208,7 +269,7 @@ arr2.push('shengHongYu');
 console.log(arr2);
 console.log(arr1);
 
-<!--现在控制台预览时，你可以看到我们的arr1并没有改变，简单的扩展运算符就解决了这个问题。-->
+// <!--现在控制台预览时，你可以看到我们的arr1并没有改变，简单的扩展运算符就解决了这个问题。-->
 ["www", "jspang", "com"]
 ["www", "jspang", "com", "shengHongYu"]
 ["www", "jspang", "com"]
@@ -225,7 +286,7 @@ function jspang(first,...arg){
 
 jspang(0,1,2,3,4,5,6,7);
 
-<!--这时候控制台打印出了7，说明我们arg里有7个数组元素，这就是rest运算符的最简单用法。-->
+// <!--这时候控制台打印出了7，说明我们arg里有7个数组元素，这就是rest运算符的最简单用法。-->
 ```
 - 如何循环输出rest运算符
 
@@ -447,34 +508,53 @@ document.write('jspang|'.repeat(3));
         console.log(arr);
         <!--上边的代码是把数组从第二位到第五位用jspang进行填充。-->
         ```
-2. 数组的遍历
+2. 数组的遍历: for..of遍历元素列表（即），如Array，并逐个返回元素（不是它们的索引）
 
     - for…of循环：这种形式比ES5的for循环要简单而且高效。先来看一个最简单的for…of循环。
         
-        ```
+        ```js
         let arr=['jspang','技术胖','大胖逼逼叨']
-         
+            
         for (let item of arr){
             console.log(item);
         }
         ```
     - for…of数组索引:有时候开发中是需要数组的索引的，那我们可以使用下面的代码输出数组索引。
         
-        ```
+        ```js
         let arr=['jspang','技术胖','大胖逼逼叨']
         for (let index of arr.keys()){
             console.log(index);
         }
-        <!--可以看到这时的控制台就输出了0,1,2，也就是数组的索引。-->
+        // <!--可以看到这时的控制台就输出了0,1,2，也就是数组的索引。-->
         ```
     - 同时输出数组的内容和索引：我们用entries()这个实例方法，配合我们的for…of循环就可以同时输出内容和索引了。
 
-        ```
+        ```js
         let arr=['jspang','技术胖','大胖逼逼叨']
         for (let [index,val] of arr.entries()){
             console.log(index+':'+val);
         }
         ```
+    - 同时for...of循环也适用于字符串
+        ```js
+        let string = "Javascript";
+        for (let char of string) {
+        console.log(char);
+        }
+        Output:
+        J
+        a
+        v
+        a
+        s
+        c
+        r
+        i
+        p
+        t
+        ```
+
 3. entries( )实例方法：
 
     - entries()实例方式生成的是Iterator形式的数组，那这种形式的好处就是可以让我们在需要时用next()手动跳转到下一个值。我们来看下面的代码：
@@ -489,30 +569,30 @@ document.write('jspang|'.repeat(3));
 
 
 ## 第9节：ES6中的箭头函数和扩展
-1. 默认值
+1. 默认参数: 默认参数是在声明函数时默认给出的参数。
 
-    - 在ES6中给我们增加了默认值的操作，我们修改上边的代码，可以看到现在只需要传递一个参数也是可以正常运行的。
+- 在ES6中给我们增加了默认参数的操作，我们修改上边的代码，可以看到现在只需要传递一个参数也是可以正常运行的。
+```js
+function add(a,b=1){
+    return a+b;
+}
+console.log(add(1));
+```
 
-        ```
-        function add(a,b=1){
-            return a+b;
+- 主动抛出错误
+    - 在使用Vue的框架中，可以经常看到框架主动抛出一些错误，比如v-for必须有:key值。那尤大神是如何做到的那？其实很简单，ES6中我们直接用throw new Error( xxxx ),就可以抛出错误。
+    ```js
+    function add(a,b=1){
+        
+        if(a == 0){
+            throw new Error('This is error')
         }
-        console.log(add(1));
-        ```
-    
-    - 主动抛出错误
-        - 在使用Vue的框架中，可以经常看到框架主动抛出一些错误，比如v-for必须有:key值。那尤大神是如何做到的那？其实很简单，ES6中我们直接用throw new Error( xxxx ),就可以抛出错误。
-            ```	
-            function add(a,b=1){
-               
-                if(a == 0){
-                    throw new Error('This is error')
-                }
-                 return a+b;
-            }
-             
-            console.log(add(0));
-            ```
+            return a+b;
+    }
+        
+    console.log(add(0));
+    ```
+
 2. 函数中的严谨模式
 
     - 我们在ES中就经常使用严谨模式来进行编程，但是必须写在代码最上边，相当于全局使用。在ES6中我们可以写在函数体中，相当于针对函数来使用。
@@ -539,6 +619,7 @@ document.write('jspang|'.repeat(3));
          
         console.log(add(1,2));
         ```
+
 3. 获得需要传递的参数个数
 
     - 如果你在使用别人的框架时，不知道别人的函数需要传递几个参数怎么办？ES6为我们提供了得到参数的方法(xxx.length).我们用上边的代码看一下需要传递的参数个数。
@@ -556,22 +637,34 @@ document.write('jspang|'.repeat(3));
     - 这时控制台打印出了2，但是如果我们去掉严谨模式，并给第二个参数加上默认值的话，这时候add.length的值就变成了1， 也就是说它得到的是必须传入的参数。
 
 4. 箭头函数
+```js
+// 老语法
+function oldOne() {
+ console.log("Hello World..!");
+}
+// 新语法
+var newOne = () => {
+ console.log("Hello World..!");
+}
+// 第一部分是声明一个变量并为其分配函数（即）（）。它只是说变量实际上是一个函数。
+// 第二部分声明函数体。 带有花括号的箭头部分定义了函数体。
+```
 
-    - 在学习Vue的时候，我已经大量的使用了箭头函数，因为箭头函数真的很好用，我们来看一个最简单的箭头函数。也就是上边我们写的add函数，进行一个改变，写成箭头函数。
-        ```
-        var add =(a,b=1) => a+b;
-        console.log(add(1));
-        ``` 
-    - {}的使用
-        - 在箭头函数中，方法体内如果是两句话，那就需要在方法体外边加上{}括号。例如下边的代码就必须使用{}.
-        ```
-        var add =(a,b=1) => {
-            console.log('jspang')
-            return a+b;
-        };
-        console.log(add(1));
-        ```
-    - 箭头函数中不可加new，也就是说箭头函数不能当构造函数进行使用。
+- 在学习Vue的时候，我已经大量的使用了箭头函数，因为箭头函数真的很好用，我们来看一个最简单的箭头函数。也就是上边我们写的add函数，进行一个改变，写成箭头函数。
+```js
+var add =(a,b=1) => a+b;
+console.log(add(1));
+``` 
+- {}的使用
+    - 在箭头函数中，方法体内如果是两句话，那就需要在方法体外边加上{}括号。例如下边的代码就必须使用{}.
+    ```js
+    var add =(a,b=1) => {
+        console.log('jspang')
+        return a+b;
+    };
+    console.log(add(1));
+    ```
+- 箭头函数中不可加new，也就是说箭头函数不能当构造函数进行使用。
 
 ## 第10节：ES6中的函数和数组补漏
 1. 对象的函数解构
@@ -663,11 +756,11 @@ document.write('jspang|'.repeat(3));
 
     4. map
 
-        ```
+        ```js
         let arr=['jspang','技术胖','前端教程'];
          
         console.log(arr.map(x=>'web'));
-        <!--map在这里起到一个替换的作用-->
+        // <!--map在这里起到一个替换的作用-->
         ```
 
 5. 数组转换字符串
@@ -830,15 +923,28 @@ document.write('jspang|'.repeat(3));
 
 ## 第13节：Set和WeakSet数据结构
 
-1. Set的声明
-
-```
+1. Set的声明: 用来保存任何类型的唯一值
+```js
+var sets = new Set();
+sets.add('a');
+sets.add('b');
+sets.add('a'); // 添加重复的值.
+for (let element of sets) {
+ console.log(element);
+}
+输出:
+a
+b
 let setArr = new Set(['jspang','技术胖','web','jspang']);
 console.log(setArr);//Set {"jspang", "技术胖", "web"}
 ```
 - Set和Array 的区别是Set不允许内部有重复的值，如果有只显示一个，相当于去重。虽然Set很像数组，但是他不是数组。
 
+- Set是可迭代的对象。 我们必须遍历元素才能显示它。
+
 2. Set值的增删查
+
+    - size: 返回set的大小
 
     - 追加add：在使用Array的时候，可以用push进行追加值，那Set稍有不同，它用更语义化的add进行追加。
 
@@ -936,7 +1042,59 @@ weakObj.add(obj1);
 console.log(weakObj);
 ```
 
-## 第14节：map数据结构
+## 第14节：map数据结构: 
+
+- Map包含键值对。它与数组类似，但我们可以定义自己的索引。索引在Map中是唯一的。
+
+```js
+var NewMap = new Map();
+NewMap.set('name', 'John'); 
+NewMap.set('id', 2345796);
+NewMap.set('interest', ['js', 'ruby', 'python']);
+NewMap.get('name'); // John
+NewMap.get('id'); // 2345796
+NewMap.get('interest'); // ['js', 'ruby', 'python']
+```
+
+- Map的其他有趣的功能是所有索引都是唯一的。 我们可以使用任何值作为键或值。
+
+```js
+var map = new Map();
+map.set('name', 'John');
+map.set('name', 'Andy');
+map.set(1, 'number one');
+map.set(NaN, 'No value');
+map.get('name'); // Andy. 注意John被Andy替换了.
+map.get(1); // number one
+map.get(NaN); // No value
+```
+
+- Map中另外一些有用的方法：
+```js
+var map = new Map();
+map.set('name', 'John');
+map.set('id', 10);
+map.size; // 2. 返回map的大小.
+map.keys(); // 返回所有的键. 
+map.values(); // 返回所有的值.
+// map.keys() 返回map的键，但是返回的是一个Iteratord对象，这意味这不能按原样展示出来，只能通过迭代展示出来。
+for (let key of map.keys()) {
+ console.log(key);
+}
+输出:
+name
+id
+```
+```js
+var map = new Map();
+for (let element of map) {
+ console.log(element);
+}
+输出:
+['name', 'John']
+['id', 10]
+```
+
 1. Json和map格式的对比
 
     - map的效率和灵活性更好
@@ -953,7 +1111,7 @@ console.log(weakObj);
     
     - 但是这种反应的速度要低于数组和map结构。而且Map的灵活性要更好，你可以把它看成一种特殊的键值对，但你的key可以设置成数组，值也可以设置成字符串，让它不规律对应起来。
 
-        ```
+        ```js
         let json = {
             name:'jspang',
             skill:'web'
@@ -967,7 +1125,7 @@ console.log(weakObj);
     
     - 当然也可key字符串，value是对象。我们调换一下位置，依然是符合map的数据结构规范的。
 
-        ```
+        ```js
         map.set('jspang',json);
         console.log(map);
         ```
@@ -982,11 +1140,10 @@ console.log(weakObj);
         ```
     - 删除delete: 删除delete的特定值
 
-        ```
+        ```js
         map.delete(json);
         console.log(map)
         ```
-    
     - size属性
 
         ```
@@ -1158,8 +1315,7 @@ class coder{
         console.log(val);
     }
 }
-        ```
-
+```
 
 2. 类的使用
 
@@ -1240,6 +1396,68 @@ pang.name('技术胖');
 ```
 - 声明一个htmler的新类并继承Coder类，htmler新类里边为空，这时候我们实例化新类，并调用里边的name方法。结果也是可以调用到的。
 
+6. 静态方法
+
+```js
+class Example {
+ static Callme() {
+ console.log("Static method");
+ }
+}
+Example.Callme();
+输出:
+Static method
+```
+
+- 可以在不为类创建任何实例的情况下调用该函数。
+
+7. Getters和Setters
+
+- Getters和Setterss是ES6中引入的有用功能之一。 如果你在JS中使用类，它会派上用场。
+
+```js
+// 没有getter和setter的示例：
+class People {
+constructor(name) {
+ this.name = name;
+ }
+ getName() {
+ return this.name;
+ }
+ setName(name) {
+ this.name = name;
+ }
+}
+let person = new People("Jon Snow");
+console.log(person.getName());
+person.setName("Dany");
+console.log(person.getName());
+输出:
+Jon Snow
+Dany
+
+// 上面的例子不言自明. 在类People中，我们有两个函数帮助我们设置和获取一个人的名字。
+
+// getters 和 setters的例子：
+class People {
+constructor(name) {
+ this.name = name;
+ }
+ get Name() {
+ return this.name;
+ }
+ set Name(name) {
+ this.name = name;
+ }
+}
+let person = new People("Jon Snow");
+console.log(person.Name);
+person.Name = "Dany";
+console.log(person.Name);
+```
+- 在上面的示例中，您可以看到在People类中，有两个函数分别具有'get'和'set'属性， 'get'属性用于获取变量的值，'set'属性用于设置变量的值。
+
+- 你可以看到调用getName函数并没有使用括号， 并且调用setName函数也没有使用括号，就像为变量赋值一样。
 
 ## 第18节：模块化操作
 - 在ES5中我们要进行模块华操作需要引入第三方类库，随着前后端分离，前端的业务日渐复杂，ES6为我们增加了模块话操作。模块化操作主要包括两个方面。
