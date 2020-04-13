@@ -4,70 +4,67 @@
 
 1. 建立工程目录：
 
-- 先建立一个项目的工程目录，并在目录下边建立两个文件夹：src和dist
+    - 先建立一个项目的工程目录，并在目录下边建立两个文件夹：src和dist
 
-    - src：书写ES6代码的文件夹，写的js程序都放在这里。
+        - src：书写ES6代码的文件夹，写的js程序都放在这里。
 
-    - dist：利用Babel编译成的ES5代码的文件夹，在HTML页面需要引入的时这里的js文件。
+        - dist：利用Babel编译成的ES5代码的文件夹，在HTML页面需要引入的时这里的js文件。
 
 2. 编写index.html：
 
-- 文件夹建立好后，我们新建一个index.html文件。
+    - 文件夹建立好后，我们新建一个index.html文件。
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title></title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="./dist/index.js"></script>
-    </head>
-    <body>
-        Hello ECMA Script 6
-    </body>
-</html>
-```
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title></title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <script src="./dist/index.js"></script>
+        </head>
+        <body>
+            Hello ECMA Script 6
+        </body>
+    </html>
+    ```
 
 3. 编写index.js
-- 在src目录下，新建index.js文件。这个文件很简单，我们只作一个a变量的声明，并用console.log()打印出来。
+    - 在src目录下，新建index.js文件。这个文件很简单，我们只作一个a变量的声明，并用console.log()打印出来。
 
 4. 初始化项目
-- 在安装Babel之前，需要用npm init先初始化我们的项目。打开终端或者通过cmd打开命令行工具，进入项目目录，输入下边的命令：
+    - 在安装Babel之前，需要用npm init先初始化我们的项目。打开终端或者通过cmd打开命令行工具，进入项目目录，输入下边的命令：
 
-
-```
-npm i -y
-```
+    ```js
+    npm i -y
+    ```
 
 4. 全局安装Babel-cli
-```
+```js
 npm install -g babel-cli
 ```
 
 5. 本地安装babel-preset-es2015 和 babel-cli
 
-```
+```js
 npm install --save-dev babel-preset-es2015 babel-cli
 ```
 
 6. 新建.babelrc
-- 在根目录下新建.babelrc文件，并打开录入下面的代码
+    - 在根目录下新建.babelrc文件，并打开录入下面的代码
+    ```json
+    {
+        "presets":[
+            "es2015"
+        ],
+        "plugins":[]
+    }
+    ```
+    - 这个文件我们建立完成后，现在可以在终端输入的转换命令了，这次ES6成功转化为ES5的语法。
 
-```
-{
-    "presets":[
-        "es2015"
-    ],
-    "plugins":[]
-}
-```
-- 这个文件我们建立完成后，现在可以在终端输入的转换命令了，这次ES6成功转化为ES5的语法。
-
-
-```
-babel src/index.js -o dist/index.js
-```
+    ```js
+    babel src/index.js -o dist/index.js
+    ```
 
 ## 第2节：新的声明方式（let和const）
 1. var声明：
@@ -116,91 +113,84 @@ console.log(LANGUAGES); // ['Js', 'Ruby', 'Python', 'Go', 'Java']
 
 ## 第3节：变量的解构赋值
 1. 数组的解构赋值：
-- 简单的数组解构：
+    - 简单的数组解构：
 
-- 以前，为变量赋值，我们只能直接指定值。比如下面的代码：
+    - 以前，为变量赋值，我们只能直接指定值。比如下面的代码：
 
-```
-let a=0;
-let b=1;
-let c=2;
-```
-- 而现在我们可以用数组解构的方式来进行赋值。
+    ```js
+    let a=0;
+    let b=1;
+    let c=2;
+    ```
+    - 而现在我们可以用数组解构的方式来进行赋值。
 
-
-```
-let [a,b,c]=[1,2,3];
-```
+    ```js
+    let [a,b,c]=[1,2,3];
+    ```
 2. 数组模式和赋值模式统一：
 
-- 可以简单的理解为等号左边和等号右边的形式要统一，如果不统一解构将失败。
+    - 可以简单的理解为等号左边和等号右边的形式要统一，如果不统一解构将失败。
 
-```
-let [a,[b,c],d]=[1,[2,3],4];
-```
-- 如果等号两边形式不一样，很可能获得undefined或者直接报错。
+    ```js
+    let [a,[b,c],d]=[1,[2,3],4];
+    ```
+    - 如果等号两边形式不一样，很可能获得undefined或者直接报错。
 
 3. 解构的默认值：
 
-- 解构赋值是允许你使用默认值的，先看一个最简单的默认是的例子。
+    - 解构赋值是允许你使用默认值的，先看一个最简单的默认是的例子。
 
+    ```js
+    let [foo = true] =[];
+    console.log(foo); //控制台打印出true
+    ```
+    - 需要注意的是undefined和null的区别。
 
+    ```js
+    let [a,b="JSPang"]=['技术胖',undefined];
+    console.log(a+b); //控制台显示“技术胖JSPang”
 
-```
-let [foo = true] =[];
-console.log(foo); //控制台打印出true
-```
-- 需要注意的是undefined和null的区别。
+    //undefined相当于什么都没有，b是默认值。
 
-```js
-let [a,b="JSPang"]=['技术胖',undefined];
-console.log(a+b); //控制台显示“技术胖JSPang”
-
-//undefined相当于什么都没有，b是默认值。
-
-let [a,b="JSPang"]=['技术胖',null];
-console.log(a+b); //控制台显示“技术胖null”
-```
+    let [a,b="JSPang"]=['技术胖',null];
+    console.log(a+b); //控制台显示“技术胖null”
+    ```
 
 4. 对象的解构赋值
-- 解构不仅可以用于数组，还可以用于对象。
-```
-let {foo,bar} = {foo:'JSPang',bar:'技术胖'};
-console.log(foo+bar); //控制台打印出了“JSPang技术胖”
-```
-- 注意：对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
+    - 解构不仅可以用于数组，还可以用于对象。
+    ```js
+    let {foo,bar} = {foo:'JSPang',bar:'技术胖'};
+    console.log(foo+bar); //控制台打印出了“JSPang技术胖”
+    ```
+    - 注意：对象的解构与数组有一个重要的不同。数组的元素是按次序排列的，变量的取值由它的位置决定；而对象的属性没有次序，变量必须与属性同名，才能取到正确的值。
 
-- 圆括号的使用：如果在解构之前就定义了变量，这时候你再解构会出现问题。下面是错误的代码，编译会报错。
+    - 圆括号的使用：如果在解构之前就定义了变量，这时候你再解构会出现问题。下面是错误的代码，编译会报错。
 
+    ```js
+    let foo;
+    {foo} ={foo:'JSPang'};
+    console.log(foo);
+    ```
+    - 要解决报错，使程序正常，我们这时候只要在解构的语句外边加一个圆括号就可以了。
 
-
-```
-let foo;
-{foo} ={foo:'JSPang'};
-console.log(foo);
-```
-- 要解决报错，使程序正常，我们这时候只要在解构的语句外边加一个圆括号就可以了。
-
-
-
-```
-let foo;
-({foo} ={foo:'JSPang'});
-console.log(foo); //控制台输出jspang
-```
+    ```js
+    let foo;
+    ({foo} ={foo:'JSPang'});
+    console.log(foo); //控制台输出jspang
+    ```
 
 5. 字符串解构
-- 字符串也可以解构，这是因为，此时字符串被转换成了一个类似数组的对象。
+    - 字符串也可以解构，这是因为，此时字符串被转换成了一个类似数组的对象。
 
-```
-const [a,b,c,d,e,f]="JSPang";
-console.log(a);
-console.log(b);
-console.log(c);
-console.log(d);
-console.log(e);
-console.log(f);
-```
+    ```js
+    const [a,b,c,d,e,f]="JSPang";
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(d);
+    console.log(e);
+    console.log(f);
+    ```
 
 
 ## 第4节：扩展运算符和rest运算符
@@ -654,7 +644,7 @@ var newOne = () => {
 ```js
 var add =(a,b=1) => a+b;
 console.log(add(1));
-``` 
+```
 - {}的使用
     - 在箭头函数中，方法体内如果是两句话，那就需要在方法体外边加上{}括号。例如下边的代码就必须使用{}.
     ```js
@@ -685,7 +675,7 @@ console.log(add(1));
 
     - 函数能解构JSON，那解构我们的数组就更不在话下了，我们看下边的代码。我们声明一个数组，然后写一个方法，最后用…进行解构赋值。
 
-        ```
+        ```js
         let arr = ['jspang','技术胖','免费教程'];
         function fun(a,b,c){
             console.log(a,b,c);
@@ -738,12 +728,18 @@ console.log(add(1));
         
         - forEach循环的特点是会自动省略为空的数组元素，相当于直接给我们筛空了。当是有时候也会给我们帮倒忙。
     
-    2. filter
+    2. filter（数组过滤）: 数组过滤器用于根据某些条件过滤整个数组。数组过滤器获取数组的每个元素并检查给定条件。如果元素通过条件，它将元素保留在数组中，否则它将删除元素。
+        - 参数：(元素本身, 元素的索引, 整个数组)
+        ```js
+        let arr = [1,2,3,4,5,6] 
+        let modifiedArr = arr.filter（function（element，index，array）{ 
+        return element％2 == 0 
+        }）; 
+        console.log（modifiedArr）;
+        输出：
+        [2,4,6]
         ```
-        let arr=['jspang','技术胖','前端教程'];
-         
-        arr.filter(x=>console.log(x));
-        ```
+        - 我们必须为数组的每个元素返回一个布尔值。如果您不在末尾返回任何布尔值，则filter将其视为false并删除该元素。
         - 这种方法在Vue实战里我讲过，他其实也有循环的功能，这里我们在复习一遍。
 
     3. some
@@ -754,15 +750,58 @@ console.log(add(1));
         arr.some(x=>console.log(x));
         ```
 
-    4. map
+    4. map（数组映射）: Map运算符用于对数组的所有元素执行特定操作，并返回包含已修改元素的数组。
 
+        - 参数: (元素本身, 元素的索引, 整个数组), 第二个和第三个参数只是可选的。只有第一个参数是必需的。
         ```js
         let arr=['jspang','技术胖','前端教程'];
          
-        console.log(arr.map(x=>'web'));
+        console.log(arr.map(x=>'web')); // [ "web", "web", "web" ]
         // <!--map在这里起到一个替换的作用-->
-        ```
 
+        let arr = [1,2,3,4,5];
+        let modifiedArr = arr.map（function（element，index，arr）{ 
+        return element * 10; 
+        }）; 
+        console.log（modifiedArr）;
+        输出：
+        [10,20,30,40,50]
+        // 注意我们最终必须返回一些值。这将是该元素的修改值。如果您没有返回任何内容，那么特定元素将是未定义的。
+        eg: 
+        console.log(arr.map(x=>{})); //  [ undefined, undefined, undefined ]
+        ```
+    5. reduce: reduce(数组降维)用于聚合数组的所有元素并返回单个值。
+        
+        - 与filter和map不同，reduce使用具有四个参数的函数以及一个附加元素。在我们的例子中，它是0。
+        
+        - 第一个参数是聚合器元素。它是所有元素总和，并且可以给定一个初始值。它的初始值被定义为附加元素。
+
+        ```js
+        let arr = [1,2,3,4,5,6] 
+        let total = arr.reduce（function（sum，element，index，array）{ 
+        return sum + element; 
+        }，0）; 
+        console.log（“total is”+ total）;
+        输出：
+        total is 21
+        ```
+        - 将聚合器元素总和的初始值设置为10。
+        ```js
+        let arr = [1,2,3,4,5,6]; 
+        let totalSum = arr.reduce（function（sum，element，index，array）{ 
+        console.log（sum +“+”+ element +“=”+ sum + element）; 
+        return sum + element; 
+        }，10）; 
+        console.log（“Total sum is ”+ totalSum）;
+        输出：
+        10 + 1 = 11 
+        11 + 2 = 13 
+        13 + 3 = 16 
+        16 + 4 = 20 
+        20 + 5 = 25 
+        25 + 6 = 31 
+        Total sum is 31
+        ```
 5. 数组转换字符串
 
 - 在开发中我们经常会碰到把数组输出成字符串的形式，我们今天学两种方法，你要注意两种方法的区别。
@@ -1249,8 +1288,104 @@ var pro = new Proxy(target, handler);
 console.log(pro());
 ```
 
-## 第16节：promise对象的使用
-1. promise的基本用法: promise执行多步操作非常好用，那我们就来模仿一个多步操作的过程，那就以吃饭为例吧。要想在家吃顿饭，是要经过三个步骤的。
+## 第16节：promise对象：Promise是有助于执行异步操作的对象。
+
+- 在Promise之前，程序员习惯于定义回调来处理异步操作。回调是Javascript中的常规函数，它在异步操作完成时执行。
+
+- Promise是ES6中的一个有用功能。它们用于进行异步操作，例如API请求，文件处理，下载图像等。从技术上讲，它们是表示异步操作完成的对象。
+
+- Promise的生命周期：
+    1. 挂起：在这种状态下，promise只是执行异步操作。例如，它正在向服务器发出一些API请求或从cdn下载一些图像。 从这个状态Promise可以转移到完成状态或拒绝状态
+    2. 完成：如果Promise已达到此状态，则表示异步操作已完成，并且得到了输出的结果。例如，我们有了来自API的响应。
+    3. 拒绝：如果Promise已达到此状态，则表示异步操作未成功，并且我们得到导致操作失败的错误。
+```js
+// 通过使用new关键字创建构造函数来定义Promise。 然后构造函数将有一个函数（我们称之为执行函数。）
+const apiCall = new Promise(function(resolve, reject) {
+ // 异步操作在这里定义..
+});
+```
+
+- 执行函数有两个参数resolve和reject。
+    
+    1. 第一个参数resolve实际上是一个函数。 它在执行函数内部调用，它表示异步操作成功，我们得到了结果。 resolve函数有助于Promise从挂起状态转为完成状态。
+    
+    2. 像resolve一样，reject也是一个函数。 它也在执行函数内部调用，它表示异步操作不成功，我们遇到了错误。 reject函数有助于Promise从挂起状态转为拒绝状态。
+
+```js
+const apiCall = new Promise(function(resolve, reject) {
+ if ( API request to get some data ) {
+  resolve("The request is successful and the response is "+ response);
+ }
+ else {
+  reject("The request is not successful. The error is "+error);
+ }
+});
+```
+
+- 使用处理器来获取promise的输出: 处理器是在某些事件发生时执行的函数，例如单击按钮，移动光标等。
+
+```js
+// 调用promise，并使用handlers.
+apiCall.then(function(x) {console.log(x); })
+
+// 将一个处理器then附加到promise。处理器then有一个函数参数。函数参数本身有一个参数x。
+// 当在promise内调用resolve函数时，处理器then执行其函数参数。
+// 输出
+The request is successful and the response is {name: "Jon Snow"}
+
+// 同样，还有另一个处理器catch。Catch监听reject函数。
+// Catch函数在reject函数被调用时执行其函数参数。
+apiCall.then(function(x) {console.log(x); }).catch(function(x) {console.log(x); })
+// 假设这个请求没有成功 (在promise中reject函数被调用. )
+输出:
+The request is not successful
+
+// 最终：
+apiCall
+.then(function(x) {
+ console.log(x); 
+})
+.catch(function(x) {
+ console.log(x);
+}) 
+```
+
+- 回顾
+    1. 使用带有函数参数的new关键字定义Promise。 然后函数本身有两个函数参数resolve和reject。
+    2. 操作成功时应调用resolve函数。
+    3. 操作失败时应调用reject函数。
+    4. 处理器then监控resolve函数。
+    5. 处理器catch监控reject函数。
+    6. 确保代码的可读性。
+```js
+var ApiCall = new Promise(function(resolve, reject) {
+  
+  var request = new XMLHttpRequest();
+  request.open('GET', 'https://api.github.com/users/srebalaji');
+
+  request.onload = function() {
+    if (request.status == 200) {
+      
+      resolve(request.response);
+    } else {
+      reject(Error(request.statusText));
+    }
+  }
+
+  request.send();
+});
+
+ApiCall
+.then(function(x) {
+  document.getElementById('response').innerHTML = x;
+})
+.catch(function(x) {
+	document.getElementById('response').innerHTML = x;
+})
+```
+
+
+- promise的基本用法: promise执行异步操作非常好用，那我们就来模仿一个异步操作的过程，那就以吃饭为例吧。要想在家吃顿饭，是要经过三个步骤的。
 
     - 洗菜做饭。
     - 坐下来吃饭。
@@ -1258,50 +1393,50 @@ console.log(pro());
 
 - 这个过程是有一定的顺序的，你必须保证上一步完成，才能顺利进行下一步。我们可以在脑海里先想想这样一个简单的过程在ES5写起来就要有多层的嵌套。那我们现在用promise来实现。
 
-    ```js
-    let state=1;
-     
-    function step1(resolve,reject){
-        console.log('1.开始-洗菜做饭');
+```js
+let state=1;
+    
+function step1(resolve,reject){
+    console.log('1.开始-洗菜做饭');
+    if(state==1){
+        resolve('洗菜做饭--完成');
+    }else{
+        reject('洗菜做饭--出错');
+    }
+}
+    
+    
+function step2(resolve,reject){
+    console.log('2.开始-坐下来吃饭');
+    if(state==1){
+        resolve('坐下来吃饭--完成');
+    }else{
+        reject('坐下来吃饭--出错');
+    }
+}
+    
+    
+function step3(resolve,reject){
+    console.log('3.开始-收拾桌子洗完');
         if(state==1){
-            resolve('洗菜做饭--完成');
-        }else{
-            reject('洗菜做饭--出错');
-        }
+        resolve('收拾桌子洗完--完成');
+    }else{
+        reject('收拾桌子洗完--出错');
     }
-     
-     
-    function step2(resolve,reject){
-        console.log('2.开始-坐下来吃饭');
-        if(state==1){
-            resolve('坐下来吃饭--完成');
-        }else{
-            reject('坐下来吃饭--出错');
-        }
-    }
-     
-     
-    function step3(resolve,reject){
-        console.log('3.开始-收拾桌子洗完');
-         if(state==1){
-            resolve('收拾桌子洗完--完成');
-        }else{
-            reject('收拾桌子洗完--出错');
-        }
-    }
-     
-    new Promise(step1).then(function(val){
+}
+    
+new Promise(step1).then(function(val){
+    console.log(val);
+    return new Promise(step2);
+    
+}).then(function(val){
         console.log(val);
-        return new Promise(step2);
-     
-    }).then(function(val){
-         console.log(val);
-        return new Promise(step3);
-    }).then(function(val){
-        console.log(val);
-        return val;
-    });
-    ```
+    return new Promise(step3);
+}).then(function(val){
+    console.log(val);
+    return val;
+});
+```
 
 ## 第17节：class类的使用
 
@@ -1387,14 +1522,57 @@ console.log(jspang.add());
 - 如果你学过java，一定知道类的一大特点就是继承。ES6中也就继承，在这里我们简单的看看继承的用法。
 
 ```js
-class htmler extends Coder{
- 
-}
- 
+class htmler extends Coder{}
 let pang=new htmler;
 pang.name('技术胖');
 ```
-- 声明一个htmler的新类并继承Coder类，htmler新类里边为空，这时候我们实例化新类，并调用里边的name方法。结果也是可以调用到的。
+声明一个htmler的新类并继承Coder类，htmler新类里边为空，这时候我们实例化新类，并调用里边的name方法。结果也是可以调用到的。
+
+- Extend用于从父类创建子类。子类继承了父类的所有属性，还可以修改父类的属性。
+
+```js
+// 使用构造函数和简单方法定义了一个Person类。
+class Person{
+ constructor(firstName, lastName, age) {
+   this.firstName = firstName;
+   this.lastName = lastName;
+   this.age = age;
+ }
+ displayName() {
+  return `${this.firstName} - ${this.lastName}`;
+ }
+}
+// 定义了另一个类Employee，它是一个继承自Person的子类。我们使用extend来实现这一目标。
+class Employee extends Person {
+ constructor(firstName, lastName, age, salary) {
+  // 然后我们使用super关键字来调用父类的构造函数。我们还使用super调用父类中声明的方法。
+  // 只有在调用super之后才能在子类中使用this。
+  // 如果在子类中调用super之前使用this，则会得到RefrenceError。
+  super(firstName, lastName, age);
+  this.salary = salary;
+ }
+ displaySalary() {
+  return `${this.salary}`;
+ }
+ displayName() {
+  return super.displayName();
+ }
+ displayAge() {
+  return this.age;
+ }
+}
+let manager = new Employee("Jon", "Snow", 23, 100);
+console.log(manager.displaySalary());
+console.log(manager.displayName());
+console.log(manager.displayAge());
+输出:
+100
+Jon Snow
+23
+```
+1、我们使用extends从父类创建一个子类。 
+2、我们用super来调用父类的构造函数。 
+3、我们使用super来调用父类中定义的方法。 
 
 6. 静态方法
 
@@ -1459,99 +1637,323 @@ console.log(person.Name);
 
 - 你可以看到调用getName函数并没有使用括号， 并且调用setName函数也没有使用括号，就像为变量赋值一样。
 
-## 第18节：模块化操作
+## 第18节：模块化操作(导入和导出)
 - 在ES5中我们要进行模块华操作需要引入第三方类库，随着前后端分离，前端的业务日渐复杂，ES6为我们增加了模块话操作。模块化操作主要包括两个方面。
 
     1. export :负责进行模块化，也是模块的输出。
+    
     2. import : 负责把模块引，也是模块的引入操作。
 
 1. export的用法：
 
-- export可以让我们把变量，函数，对象进行模块话，提供外部调用接口，让外部进行引用。先来看个最简单的例子，把一个变量模块化。我们新建一个temp.js文件，然后在文件中输出一个模块变量。
+    - export可以让我们把变量，函数，对象进行模块话，提供外部调用接口，让外部进行引用。先来看个最简单的例子，把一个变量模块化。我们新建一个temp.js文件，然后在文件中输出一个模块变量。
 
-```
-export var a = 'jspang';
-```
-- 然后可以在index.js中以import的形式引入。
-
-```
-import {a} from './temp.js';
- 
-console.log(a);
-```
-
-- 这就是一个最简单的模块的输出和引入。
-
-2. 多变量的输出
-
-- 这里声明了3个变量，需要把这3个变量都进行模块化输出，这时候我们给他们包装成对象就可以了。
-
-```
-var a ='jspang';
-var b ='技术胖';
-var c = 'web';
- 
-export {a,b,c}
-```
-
-
-3. 函数的模块化输出
-
-
-```
-export function add(a,b){
-    return a+b;
-}
-```
-
-4. as的用法
-
-- 有些时候我们并不想暴露模块里边的变量名称，而给模块起一个更语义话的名称，这时候我们就可以使用as来操作。
-
-```
-var a ='jspang';
-var b ='技术胖';
-var c = 'web';
- 
-export {
-    x as a,
-    y as b,
-    z as c
-}
-```
-
-5. export default的使用
-
-- 加上default相当是一个默认的入口。在一个文件里export default只能有一个。我们来对比一下export和export   default的区别
-
-1. export
-    1. 可导入多个
-    
+    ```js
+    export var a = 'jspang';
     ```
-    export var a ='jspang';
-     
+    - 然后可以在index.js中以import的形式引入。
+
+    ```js
+    import {a} from './temp.js';
+    
+    console.log(a);
+    ```
+
+    - 这就是一个最简单的模块的输出和引入。
+
+    2. 多变量的输出
+
+    - 这里声明了3个变量，需要把这3个变量都进行模块化输出，这时候我们给他们包装成对象就可以了。
+
+    ```js
+    var a ='jspang';
+    var b ='技术胖';
+    var c = 'web';
+    
+    export {a,b,c}
+    ```
+
+
+    3. 函数的模块化输出
+
+    ```js
     export function add(a,b){
         return a+b;
     }
     ```
-    2. 对应的导入方式
 
-    ```
-    import {a,add} form './temp';//也可以分开写
-    ```
+    4. as的用法
 
+    - 有些时候我们并不想暴露模块里边的变量名称，而给模块起一个更语义话的名称，这时候我们就可以使用as来操作。
 
-2.export defalut
-
+    ```js
+    var a ='jspang';
+    var b ='技术胖';
+    var c = 'web';
     
-- 一个文件里export default只能有一个
+    export {
+        x as a,
+        y as b,
+        z as c
+    }
+    ```
+
+    5. export default的使用
+
+    - 加上default相当是一个默认的入口。在一个文件里export default只能有一个。我们来对比一下export和export default的区别
+
+    1. export
+        - 可导入多个
+        
+        ```
+        export var a ='jspang';
+        
+        export function add(a,b){
+            return a+b;
+        }
+        ```
+        - 对应的导入方式
+
+        ```
+        import {a,add} form './temp';//也可以分开写
+        ```
+    2. export defalut
+
+        
+        - 一个文件里export default只能有一个
+        
+        ```js
+        export default var a='jspang';
+        ```
+
+        - 对应的引入方式：可以自定义引入的名字
+
+        ```js
+        import str from './temp';
+        ```
+
+2. import的用法：
+    1. 如果使用*来导入值，则必须使用别名（也就是）引用导入的所有的值。在我们的示例中，我们使用variables作为别名。
     
+    ```js
+    app.js
+    let a = 10;
+    let b = 2;
+    let sum = () => a+b;
+    export {a,b}
+    export default sum
+    index.js
+    import * as variables from './app'
+    import addition from './app' // default value
+    console.log(variables.a);
+    console.log(variables.b);
+    console.log(addition());
+    输出:
+    10
+    2
+    12
+    ```
+
+    2. 使用*导入值不会导入默认值。你必须单独导入它。
+
+    - 如果需要在一行中导入默认值和其他值:
+    ```js
+    import addition, * as variables from './app'
+    ```
+
+
+## 19. Async / Await
+
+### Async: Async关键字使任何函数只返回promises。
+
+```js
+// eg
+async function hello() {
+ return "Hello Promise..!"
+}
+// 函数hello将返回一个promise。
+
+// 相当于
+function hello() {
+ return new Promise(function(resolve, reject) {
+ // executor function body
+ });
+}
 ```
-export default var a='jspang';
+```js
+async function hello(a, b) {
+ if (a < b) {
+  return "Greater";
+ }
+ else {
+  return new Error("Not Greater");
+ }
+}
+hello(14, 10)
+.then(function(x) {
+ console.log("Good..! " + x); 
+})
+.catch(function(x) {
+ console.log("Oops..! " + x); 
+})
+输出:
+Oops..! Not Greater. 
+// 如果你调用 hello(4, 10) 你会得到 "Good..! Greater"
+```
+在上面的代码中，我们定义了一个async函数并返回了一些值或返回了一些错误。
+
+如果要在async函数中返回一些值，则它等同于调用resolve函数。
+
+如果通过使用'new'调用错误构造函数（即）返回一些错误，则它等同于reject函数。
+
+不要忘记async函数将返回一个promise。 当然，你也可以在async函数中调用resolve和reject函数。
+
+```js
+async function Max(a, b) {
+ if (a > b) {
+  return Promise.resolve("Success");
+ }
+ else {
+  return Promise.reject("Error");
+ }
+}
+Max(4, 10)
+.then(function(x) {
+ console.log("Good " + x); 
+})
+.catch(function(x) {
+ console.log("Oops " + x); 
+});
+输出:
+Oops Error
+// 如果调用 Max(14, 10) 我们会得到 "Good Success" :)
 ```
 
-- 对应的引入方式：可以自定义引入的名字
+### Await
 
+- 顾名思义，它使Javascript等到操作完成。 假设您正在使用await关键字发出API请求。 它使Javascript等待，直到您从端点获得响应。 然后它恢复执行。
+
+- Await只能在异步函数中使用。 它在异步功能之外不起作用
+
+```js
+async function hello() {
+ let response = await fetch('https://api.github.com/');
+ // 上面一行从给定的API终端获取响应
+ return response;
+}
+hello()
+.then(function(x) {
+ console.log(x); 
+});
+...
+...
+输出:
+Response from the API.
 ```
-import str from './temp';
+await操作仅停止hello函数内的执行。 hello函数外的其余代码不会受到影响。 执行在函数外部继续。 当我们得到响应时，执行内部函数参数。
+
+- 例子
+
+```js
+function getResponse() {
+  return new Promise(function(resolve, reject) {
+    setTimeout(function() {
+      resolve("Response from API. Executed after 5 secs");
+    }, 5000);
+  });
+}
+
+async function hello() {
+  let response = await getResponse();
+  return response;
+}
+
+hello()
+  .then(function(x) {
+    console.log(x);
+  })
+  .catch(function(x) {
+    console.log(x);
+  });
+console.log("Im executed before getResponse()");
+```
+
+我们对getResponse函数使用了await。 并且getResponse将在5秒后返回输出或错误。 因此，在此之前，执行将暂停，然后返回响应。
+
+- 实例
+
+```js
+function getResponse(url) {
+	return new Promise(function(success, failure) {
+  var request = new XMLHttpRequest();
+	request.open('GET', url);
+	
+  request.onload = function() {
+    if (request.status == 200) {
+      return success(request.response);
+    } else {
+      return failure("Error in processing..!" + request.status);
+    }
+  }
+  request.onerror = function() {
+    return failure("Error in processing ");
+  }
+  request.send();
+  });
+}
+
+function getUsername(response) {
+  response = JSON.parse(response);
+  return response["login"];
+}
+
+function makeUsernameCaps(name) {
+	return new Promise(function(success, failure) {
+  	// Let's assume it takes 3secs to make the username caps :) 
+  	setTimeout(function() {
+    success(name.toUpperCase());
+    }, 3000)
+  });
+}
+async function apiCall(url) {
+  let response = await getResponse(url); 
+  let username = await getUsername(response);
+  let username_in_caps = await makeUsernameCaps(username);
+  return username_in_caps;
+}
+
+apiCall("https://api.github.com/users/srebalaji")
+.then(function(x) {
+	console.log(x);
+})
+.catch(function(x) {
+	console.log("Error - "+x);
+});
+```
+我们已经使用了多个await。 因此，对于每个await, 程序停止执行，直到收到响应然后恢复。
+
+在示例中尝试使用一些无效网址。 您可以看到引发错误。
+
+- async函数中的错误处理非常简单。 如果在async函数内引发错误，或者在async函数中使用await调用的其他函数内引发错误，则会调用reject函数。
+
+## 20. 模板文字
+
+- 模板文字用于执行任何JS表达式。
+
+```js
+let name = "Jon Snow";
+let msg = `My name is ${name}`;
+console.log(msg);
+输出:
+My name is Jon Snow
+```
+- 多行字符串
+
+```js
+let msg = `My name
+is ${name}`;
+console.log(msg);
+输出:
+My name
+is Jon Snow
 ```

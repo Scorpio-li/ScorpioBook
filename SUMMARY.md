@@ -24,6 +24,7 @@
     * [布局（layout）](html/layout/README.md)
         * [flex布局](html/layout/flex.md)
         * [rem布局适配](html/layout/rem.md)
+        * [css布局](html/layout/css.md)
     
 * [JS](js/README.md)
     * [JS的客户端判断](js/judge.md)
@@ -68,6 +69,7 @@
     * [npm与package.json快速入门](project/package.md)
     * [清除浮动方法总结](project/clear-floating.md)
     * [浏览器兼容](project/browser-compatibility.md)
+    * [定时器相关问题](project/set-time.md)
 
 * [Node](node/README.md)
     * [node-express框架](node/express.md)

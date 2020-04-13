@@ -14,7 +14,6 @@
 - 结束位置叫做main end；
 - 交叉轴的开始位置叫做cross start，
 - 结束位置叫做cross end。
-<!-- more -->
 
 ### 二.容器的属性：
 - flex-direction
