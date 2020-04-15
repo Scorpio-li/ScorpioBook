@@ -47,6 +47,10 @@
     * [css计量单位](cssAsset/unit.md)
     * [String & Text](cssAsset/str.md)
 
+* [Node](node/README.md)
+    * [node基础](node/base.md)
+    * [node-express框架](node/express.md)
+
 * [Comprehensive](comprehensive/README.md)
     * [前端动画](comprehensive/animation/README.md)
         * [基础](comprehensive/animation/base.md)
@@ -70,9 +74,6 @@
     * [清除浮动方法总结](project/clear-floating.md)
     * [浏览器兼容](project/browser-compatibility.md)
     * [定时器相关问题](project/set-time.md)
-
-* [Node](node/README.md)
-    * [node-express框架](node/express.md)
 
 * [Linux](Linux/README.md)
     * [常用命令](Linux/commands.md)
