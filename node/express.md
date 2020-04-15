@@ -185,14 +185,15 @@ module.exports = router;
         app.use('/user', user); // mini app，通常做应用拆分
         
         app.listen(3000);
-        
         ```
 - 模板引擎：负责视图动态渲染。下面会介绍相关配置，以及如何开发自己的模板引擎。
+    
     ```js
     // view engine setup
     app.set('views', path.join(__dirname, 'views'));
     app.set('view engine', 'jade');
     ```
+    
     1.配置：
     ```js
     views：模版文件放在哪里，默认是在项目根目录下。举个例子：app.set('views', './views')
