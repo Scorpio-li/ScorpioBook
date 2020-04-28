@@ -61,6 +61,8 @@
     * [前端动画](comprehensive/animation/README.md)
         * [基础](comprehensive/animation/base.md)
     * [中台](comprehensive/middleground.md)
+    * [构建打包](comprehensive/build/README.md)
+        * [Webpack](comprehensive/build/webpack.md)
 
 * [Interview](interview/README.md)
     * [面试题](interview/questions.md)
