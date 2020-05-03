@@ -55,7 +55,9 @@
 
 * [Node](node/README.md)
     * [node基础](node/base.md)
+    * [node核心基础模块](ndoe/module.md)
     * [node-express框架](node/express.md)
+    * [node实例](ndoe/example.md)
 
 * [Comprehensive](comprehensive/README.md)
     * [前端动画](comprehensive/animation/README.md)
