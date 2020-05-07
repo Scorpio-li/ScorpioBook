@@ -1569,6 +1569,10 @@ typeof a; // "symbol"
 
 我们先来回顾一下我们的数据类型，在最后在看看Symbol如何声明，并进行一个数据类型的判断。
 
+<font color=FF0000>Symbol</font>函数不能用<font color=FF0000>new</font>，会报错。由于<font color=FF0000>Symbol</font>是一个原始类型，不是对象，所以不能添加属性，它是类似于字符串的数据类型。
+
+Symbol都是不相等的，即使参数相同。
+
 ```js
 var a = new String;
 var b = new Number;
@@ -1577,16 +1581,44 @@ var d = new Array;
 var e = new Object; 
 var f= Symbol();
 console.log(typeof(d));
+
+// 没有参数
+let a1 = Symbol();
+let a2 = Symbol();
+a1 === a2; // false 
+
+// 有参数
+let a1 = Symbol('abc');
+let a2 = Symbol('abc');
+a1 === a2; // false 
 ```
 
-### 2. Symbol的打印
+### 2. Symbol的介绍
 
-我们先声明一个Symbol，然后我们在控制台输出一下。
+Symbol可以显式转换为字符串：我们先声明一个Symbol，然后我们在控制台输出一下。
 
 ```js
 var g = Symbol('jspang');
 console.log(g);
 console.log(g.toString());
+```
+
+Symbol不能与其他类型的值计算，会报错。
+
+```js
+let a = Symbol('hello');
+a + " world!";  // 报错
+`${a} world!`;  // 报错
+```
+Symbol可以转换为布尔值，但不能转为数值：
+
+```js
+let a1 = Symbol();
+Boolean(a1);
+!a1;        // false
+
+Number(a1); // TypeError
+a1 + 1 ;    // TypeError
 ```
 
 - 这时候我们仔细看控制台是有区别的，没有toString的是红字，toString的是黑字。
@@ -1605,7 +1637,103 @@ obj[jspang]='web';
 console.log(obj[jspang]);
 ```
 
+好处：防止同名属性，还有防止键被改写或覆盖。
+
+```js
+let a1 = Symbol();
+
+// 写法1
+let b = {};
+b[a1] = 'hello';
+
+// 写法2
+let b = {
+    [a1] : 'hello'
+} 
+
+// 写法3
+let b = {};
+Object.defineProperty(b, a1, {value : 'hello' });
+
+// 3种写法 结果相同
+b[a1]; // 'hello'
+```
+
+> 需要注意： Symbol作为对象属性名时，不能用点运算符，并且必须放在方括号内。
+
+```js
+let a = Symbol();
+let b = {};
+
+// 不能用点运算
+b.a = 'hello';
+b[a] ; // undefined
+b['a'] ; // 'hello'
+
+// 必须放在方括号内
+let c = {
+    [a] : function (text){
+        console.log(text);
+    }
+}
+c[a]('leo'); // 'leo'
+
+// 上面等价于 更简洁
+let c = {
+    [a](text){
+        console.log(text);
+    }
+}
+```
+
 ### 4. Symbol对象元素的保护作用
+
+Symbol作为属性名遍历，不出现在<font color=FF0000>for...in、for...of</font>循环，也不被<font color=FF0000>Object.keys()、Object.getOwnPropertyNames()、JSON.stringify()</font>返回。
+
+```js
+let a = Symbol('aa'),b= Symbol('bb');
+let obj = {
+    [a]:'11', [b]:'22'
+}
+for(let k of Object.values(obj)){console.log(k)}
+// 无输出
+
+let obj = {};
+let aa = Symbol('leo');
+Object.defineProperty(obj, aa, {value: 'hi'});
+
+for(let k in obj){
+    console.log(k); // 无输出
+}
+
+Object.getOwnPropertyNames(obj);   // []
+Object.getOwnPropertySymbols(obj); // [Symbol(leo)]
+```
+
+Object.getOwnPropertySymbols方法返回一个数组，包含当前对象所有用做属性名的Symbol值。
+
+```js
+let a = {};
+let a1 = Symbol('a');
+let a2 = Symbol('b');
+a[a1] = 'hi';
+a[a2] = 'oi';
+
+let obj = Object.getOwnPropertySymbols(a);
+obj; //  [Symbol(a), Symbol(b)]
+```
+
+另外可以使用Reflect.ownKeys方法可以返回所有类型的键名，包括常规键名和 Symbol 键名。
+
+```js
+let a = {
+    [Symbol('leo')]: 1,
+    aa : 2, 
+    bb : 3,
+}
+Reflect.ownKeys(a); // ['aa', 'bb',Symbol('leo')]
+```
+
 
 在对象中有很多值，但是循环输出时，并不希望全部输出，那我们就可以使用Symbol进行保护。
 
@@ -1620,19 +1748,54 @@ for (let item in obj){
 ```
 - 现在我不想别人知道我的年龄，这时候我就可以使用Symbol来进行循环保护。
 
-    ```
-    let obj={name:'jspang',skill:'web'};
-    let age=Symbol();
-    obj[age]=18;
-    for (let item in obj){
-        console.log(obj[item]);
-    } 
-    console.log(obj);
-    ```
+```js
+let obj={name:'jspang',skill:'web'};
+let age=Symbol();
+obj[age]=18;
+for (let item in obj){
+    console.log(obj[item]);
+} 
+console.log(obj);
+```
+
+### 5. Symbol.for()、Symbol.keyFor()
+
+- Symbol.for()
+
+用于**重复使用一个Symbol值**，接收一个**字符串**作为参数，若存在用此参数作为名称的Symbol值，返回这个Symbol，否则新建并返回以这个参数为名称的Symbol值。
+
+```js
+let a = Symbol.for('aaa');
+let b = Symbol.for('aaa');
+
+a === b;  // true
+```
+
+<font color=FF0000>Symbol()</font> 和 <font color=FF0000>Symbol.for()</font>区别：
+
+```js
+Symbol.for('aa') === Symbol.for('aa'); // true
+Symbol('aa') === Symbol('aa');         // false
+```
+
+- Symbol.keyFor()
+
+**用于返回一个已使用的Symbol类型的key**:
+
+```js
+let a = Symbol.for('aa');
+Symbol.keyFor(a);   //  'aa'
+
+let b = Symbol('aa');
+Symbol.keyFor(b);   //  undefined
+```
 
 ## 第13节：Set和WeakSet数据结构
 
-1. Set的声明: 用来保存任何类型的唯一值
+**Set**数据结构类似数组，但所有成员的值唯一。
+
+### 1. Set的声明: 用来保存任何类型的唯一值
+
 ```js
 var sets = new Set();
 sets.add('a');
@@ -1651,84 +1814,151 @@ console.log(setArr);//Set {"jspang", "技术胖", "web"}
 
 - Set是可迭代的对象。 我们必须遍历元素才能显示它。
 
-2. Set值的增删查
+### 2. Set属性值和增删查方法
 
-    - size: 返回set的大小
+- size: 返回set的大小
 
-    - 追加add：在使用Array的时候，可以用push进行追加值，那Set稍有不同，它用更语义化的add进行追加。
+- 追加add：在使用Array的时候，可以用push进行追加值，那Set稍有不同，它用更语义化的add进行追加。
 
-        ```
-        let setArr = new Set(['jspang','技术胖','web','jspang']);
-        console.log(setArr);//Set {"jspang", "技术胖", "web"}
-         
-        setArr.add('前端职场');
-        console.log(setArr);
-        ```
+添加某个值，返回 Set 结构本身。
+
+```js
+let setArr = new Set(['jspang','技术胖','web','jspang']);
+console.log(setArr);//Set {"jspang", "技术胖", "web"}
     
-    - 删除delete：
-
-        ```
-        let setArr = new Set(['jspang','技术胖','web','jspang']);
-        console.log(setArr);//Set {"jspang", "技术胖", "web"}
-         
-        setArr.add('前端职场');
-        console.log(setArr); //Set {"jspang", "技术胖", "web", "前端职场"}
-         
-        setArr.delete('前端职场');
-        console.log(setArr); //Set {"jspang", "技术胖", "web"}
-        ```
-    
-    - 查找has：用has进行值的查找，返回的是true或者false。
-
-        ```
-        let setArr = new Set(['jspang','技术胖','web','jspang']);
-        console.log(setArr);//Set {"jspang", "技术胖", "web"}
-         
-        console.log(setArr.has('jspang'));//true
-        ```
-    
-    - 删除clear:
-
-        ```
-        let setArr = new Set(['jspang','技术胖','web','jspang']);
-        console.log(setArr);//Set {"jspang", "技术胖", "web"}
-        setArr.clear();
-         
-        console.log(setArray);//true
-        ```
-
-
-3. set的循环
-
-    - for…of…循环：
-        
-        ```
-        let setArr = new Set(['jspang','技术胖','web','jspang']);
-        for (let item of setArr){
-            console.log(item);
-        }
-        ```
-    - size属性: size属性可以获得Set值的数量。
-
-        ```
-        let setArr = new Set(['jspang','技术胖','web','jspang']);
-        for (let item of setArr){
-            console.log(item);
-        }
-         
-        console.log(setArr.size);
-        ```
-    
-    - forEach循环
-        
-        ```
-        let setArr = new Set(['jspang','技术胖','web','jspang']);
-        setArr.forEach((value)=>console.log(value));
-        ```
-
-
-4. WeakSet的声明
+setArr.add('前端职场');
+console.log(setArr);
 ```
+
+> 向Set中添加值的时候，不会类型转换，即5和'5'是不同的。
+
+```js
+[...new Set([5,'5'])]; // [5, "5"]
+```
+
+- 删除delete：删除某个值，返回一个布尔值，表示删除是否成功。
+
+```js
+let setArr = new Set(['jspang','技术胖','web','jspang']);
+console.log(setArr);//Set {"jspang", "技术胖", "web"}
+    
+setArr.add('前端职场');
+console.log(setArr); //Set {"jspang", "技术胖", "web", "前端职场"}
+    
+setArr.delete('前端职场');
+console.log(setArr); //Set {"jspang", "技术胖", "web"}
+```
+
+- 查找has：返回一个布尔值，表示该值是否为Set的成员。
+
+```js
+let setArr = new Set(['jspang','技术胖','web','jspang']);
+console.log(setArr);//Set {"jspang", "技术胖", "web"}
+    
+console.log(setArr.has('jspang'));//true
+```
+
+- 删除clear: 清除所有成员，没有返回值。
+
+```js
+let setArr = new Set(['jspang','技术胖','web','jspang']);
+console.log(setArr);//Set {"jspang", "技术胖", "web"}
+setArr.clear();
+    
+console.log(setArray);//true
+```
+
+
+### 3. set的循环
+
+- keys()：返回键名的遍历器。
+
+- values()：返回键值的遍历器。
+
+- entries()：返回键值对的遍历器。
+
+- forEach()：使用回调函数遍历每个成员。
+
+Set遍历顺序是插入顺序，当保存多个回调函数，只需按照顺序调用。但由于Set结构没有键名只有键值，所以keys()和values()是返回结果相同。
+
+```js
+let a = new Set(['a','b','c']);
+for(let i of a.keys()){console.log(i)};   // 'a' 'b' 'c'
+for(let i of a.values()){console.log(i)}; // 'a' 'b' 'c'
+for(let i of a.entries()){console.log(i)}; 
+// ['a','a'] ['b','b'] ['c','c']
+```
+
+#### for…of…循环：
+    
+```js
+let setArr = new Set(['jspang','技术胖','web','jspang']);
+for (let item of setArr){
+    console.log(item);
+}
+```
+
+#### size属性: size属性可以获得Set值的数量。
+
+```js
+let setArr = new Set(['jspang','技术胖','web','jspang']);
+for (let item of setArr){
+    console.log(item);
+}
+    
+console.log(setArr.size);
+```
+
+#### forEach循环
+    
+```js
+let setArr = new Set(['jspang','技术胖','web','jspang']);
+setArr.forEach((value)=>console.log(value));
+```
+
+### 4. Set的应用
+
+#### 数组去重：
+
+```js
+// 方法1
+[...new Set([1,2,3,4,4,4])]; // [1,2,3,4]
+// 方法2
+Array.from(new Set([1,2,3,4,4,4]));    // [1,2,3,4]
+```
+
+#### 遍历和过滤：
+
+```js
+let a = new Set([1,2,3,4]);
+
+// map 遍历操作
+let b = new Set([...a].map(x =>x*2));// b => Set(4) {2,4,6,8}
+
+// filter 过滤操作
+let c = new Set([...a].filter(x =>(x%2) == 0)); // b => Set(2) {2,4}
+```
+
+#### 获取并集、交集和差集：
+
+```js
+let a = new Set([1,2,3]);
+let b = new Set([4,3,2]);
+
+// 并集
+let c1 = new Set([...a, ...b]);  // Set {1,2,3,4}
+
+// 交集
+let c2 = new Set([...a].filter(x => b.has(x))); // set {2,3}
+
+// 差集
+let c3 = new Set([...a].filter(x => !b.has(x))); // set {1}
+```
+
+
+### 5. WeakSet的声明
+
+```js
 let weakObj=new WeakSet();
 let obj={a:'jspang',b:'技术胖'}
 weakObj.add(obj);
@@ -1752,6 +1982,21 @@ console.log(weakObj);
 ```
 
 ## 第14节：map数据结构: 
+
+由于传统的JavaScript对象只能用字符串当做键，给开发带来很大限制，ES6增加Map数据结构，使得各种类型的值(包括对象)都可以作为键。
+
+Map结构提供了“值—值”的对应，是一种更完善的 Hash 结构实现。 基础使用：
+
+```js
+let a = new Map();
+let b = {name: 'leo' };
+a.set(b,'my name'); // 添加值
+a.get(b);           // 获取值
+a.size;      // 获取总数
+a.has(b);    // 查询是否存在
+a.delete(b); // 删除一个值
+a.clear();   // 清空所有成员 无返回
+```
 
 - Map包含键值对。它与数组类似，但我们可以定义自己的索引。索引在Map中是唯一的。
 
@@ -1779,6 +2024,7 @@ map.get(NaN); // No value
 ```
 
 - Map中另外一些有用的方法：
+
 ```js
 var map = new Map();
 map.set('name', 'John');
@@ -1804,117 +2050,289 @@ for (let element of map) {
 ['id', 10]
 ```
 
-1. Json和map格式的对比
+### 1. Json和map格式的对比
 
-    - map的效率和灵活性更好
-    
-    - 先来写一个JSON，这里我们用对象进行模拟操作。
+- map的效率和灵活性更好
 
-        ```
-        let json = {
-            name:'jspang',
-            skill:'web'
-        }
-        console.log(json.name);
-        ```
-    
-    - 但是这种反应的速度要低于数组和map结构。而且Map的灵活性要更好，你可以把它看成一种特殊的键值对，但你的key可以设置成数组，值也可以设置成字符串，让它不规律对应起来。
+- 先来写一个JSON，这里我们用对象进行模拟操作。
 
-        ```js
-        let json = {
-            name:'jspang',
-            skill:'web'
-        }
-        console.log(json.name);
-         
-        var map=new Map();
-        map.set(json,'iam');
-        console.log(map);
-        ```
-    
-    - 当然也可key字符串，value是对象。我们调换一下位置，依然是符合map的数据结构规范的。
+    ```js
+    let json = {
+        name:'jspang',
+        skill:'web'
+    }
+    console.log(json.name);
+    ```
 
-        ```js
-        map.set('jspang',json);
-        console.log(map);
-        ```
+- 但是这种反应的速度要低于数组和map结构。而且Map的灵活性要更好，你可以把它看成一种特殊的键值对，但你的key可以设置成数组，值也可以设置成字符串，让它不规律对应起来。
+
+    ```js
+    let json = {
+        name:'jspang',
+        skill:'web'
+    }
+    console.log(json.name);
+        
+    var map=new Map();
+    map.set(json,'iam');
+    console.log(map);
+    ```
+
+- 当然也可key字符串，value是对象。我们调换一下位置，依然是符合map的数据结构规范的。
+
+    ```js
+    map.set('jspang',json);
+    console.log(map);
+    ```
 
  
-2. map的增删查
+### 2. map的增删查
 
-    - 取值get: 现在取json对应的值。
-        
-        ```
-        console.log(map.get(json));
-        ```
-    - 删除delete: 删除delete的特定值
-
-        ```js
-        map.delete(json);
-        console.log(map)
-        ```
-    - size属性
-
-        ```
-        console.log(map.size);
-        ```
+- 取值get: 现在取json对应的值。
     
-    - 查找是否存在has
+    ```js
+    console.log(map.get(json));
+    ```
+- 删除delete: 删除delete的特定值
 
-        ```
-        console.log(map.has('jspang'))
-        ```
-    
-    - 清楚所有元素clear
+    ```js
+    map.delete(json);
+    console.log(map)
+    ```
+- size属性
 
-        ```
-        map.clear()
-        ```
+    ```js
+    console.log(map.size);
+    ```
+
+- 查找是否存在has
+
+    ```js
+    console.log(map.has('jspang'))
+    ```
+
+- 清楚所有元素clear
+
+    ```js
+    map.clear()
+    ```
+
+### 3. Map 的遍历: 顺序就是插入顺序。
+
+- keys()：返回键名的遍历器。
+
+- values()：返回键值的遍历器。
+
+- entries()：返回所有成员的遍历器。
+
+- forEach()：遍历 Map 的所有成员。
+
+```js
+let a = new Map([
+    ['name','leo'],
+    ['age',18]
+])
+
+for (let i of a.keys()){...};
+for (let i of a.values()){...};
+for (let i of a.entries()){...};
+a.forEach((v,k,m)=>{
+    console.log(`key:${k},value:${v},map:${m}`)
+})
+```
+
+将Map结构转成数组结构：
+
+```js
+let a = new Map([
+    ['name','leo'],
+    ['age',18]
+])
+
+let a1 = [...a.keys()];   // a1 => ["name", "age"]
+let a2 = [...a.values()]; // a2 =>  ["leo", 18]
+let a3 = [...a.entries()];// a3 => [['name','leo'], ['age',18]]
+```
+
+### 4. Map与其他数据结构互相转换
+
+#### Map 转 数组
+
+```js
+let a = new Map().set(true,1).set({f:2},['abc']);
+[...a]; // [[true:1], [ {f:2},['abc'] ]]
+```
+
+#### 数组 转 Map
+
+```js
+let a = [ ['name','leo'], [1, 'hi' ]]
+let b = new Map(a);
+```
+
+#### Map 转 对象
+
+如果所有 Map 的键都是字符串，它可以无损地转为对象。
+
+如果有非字符串的键名，那么这个键名会被转成字符串，再作为对象的键名。
+
+```js
+function fun(s) {
+  let obj = Object.create(null);
+  for (let [k,v] of s) {
+    obj[k] = v;
+  }
+  return obj;
+}
+
+const a = new Map().set('yes', true).set('no', false);
+fun(a)
+// { yes: true, no: false }
+```
+
+#### 对象 转 Map
+
+```js
+function fun(obj) {
+  let a = new Map();
+  for (let k of Object.keys(obj)) {
+    a.set(k, obj[k]);
+  }
+  return a;
+}
+
+fun({yes: true, no: false})
+// Map {"yes" => true, "no" => false}
+```
+
+#### Map 转 JSON
+
+(1)Map键名都是字符串，转为对象JSON：
+
+```js
+function fun (s) {
+    let obj = Object.create(null);
+    for (let [k,v] of s) {
+        obj[k] = v;
+    }
+    return JSON.stringify(obj)
+}
+let a = new Map().set('yes', true).set('no', false);
+fun(a);
+// '{"yes":true,"no":false}'
+```
+
+(2)Map键名有非字符串，转为数组JSON：
+
+```js
+function fun (map) {
+  return JSON.stringify([...map]);
+}
+
+let a = new Map().set(true, 7).set({foo: 3}, ['abc']);
+fun(a)
+// '[[true,7],[{"foo":3},["abc"]]]'
+```
+
+#### JSON 转 Map
+
+(1)所有键名都是字符串：
+
+```js
+function fun (s) {
+  let strMap = new Map();
+  for (let k of Object.keys(s)) {
+    strMap.set(k, s[k]);
+  }
+  return strMap;
+  return JSON.parse(strMap);
+}
+fun('{"yes": true, "no": false}')
+// Map {'yes' => true, 'no' => false}
+```
+
+(2)整个 JSON 就是一个数组，且每个数组成员本身，又是一个有两个成员的数组:
+
+```js
+function fun2(s) {
+  return new Map(JSON.parse(s));
+}
+fun2('[[true,7],[{"foo":3},["abc"]]]')
+// Map {true => 7, Object {foo: 3} => ['abc']}
+```
 
 ## 第15节：用Proxy进行预处理
 
-1. 声明Proxy
+proxy 用于修改某些操作的默认行为，可以理解为一种拦截外界对目标对象访问的一种机制，从而对外界的访问进行过滤和修改，即代理某些操作，也称“代理器”。
 
-    - 我们用new的方法对Proxy进行声明。可以看一下声明Proxy的基本形式。
+### 1. 声明Proxy
 
-        ```js
-        new Proxy（{},{}）;
-        ```
-    
-    - 需要注意的是这里是两个花括号，第一个花括号就相当于我们方法的主体，后边的花括号就是Proxy代理处理区域，相当于我们写钩子函数的地方。
-    现在把上边的obj对象改成我们的Proxy形式。
+- 我们用new的方法对Proxy进行声明。可以看一下声明Proxy的基本形式。
 
-        ```js
-        var pro = new Proxy({
-            add: function (val) {
-                return val + 10;
-            },
-            name: 'I am Jspang'
-        }, {
-                get:function(target,key,property){
-                    console.log('come in Get');
-                    return target[key];
-                }
-            });
-         
-        console.log(pro.name);
-        ```
-    
-    - 可以在控制台看到结果，先输出了come in Get。相当于在方法调用前的钩子函数。
+    ```js
+    new Proxy（{},{}）;
+    ```
 
-2. get属性: get属性是在你得到某对象属性值时预处理的方法，他接受三个参数
-    1. target：得到的目标值
-    2. key：目标的key值，相当于对象的属性
-    3. property：这个不太常用，用法还在研究中，还请大神指教。
+- 需要注意的是这里是两个花括号，第一个花括号就相当于我们方法的主体，后边的花括号就是Proxy代理处理区域，相当于我们写钩子函数的地方。
+
+现在把上边的obj对象改成我们的Proxy形式。
+
+    ```js
+    var pro = new Proxy({
+        add: function (val) {
+            return val + 10;
+        },
+        name: 'I am Jspang'
+    }, {
+            get:function(target,key,property){
+                console.log('come in Get');
+                return target[key];
+            }
+        });
+        
+    console.log(pro.name);
+    ```
+
+- 可以在控制台看到结果，先输出了come in Get。相当于在方法调用前的钩子函数。
+
+proxy实例化需要传入两个参数，target参数表示所要拦截的目标对象，handler参数也是一个对象，用来定制拦截行为。
+
+```js
+let p = new Proxy(target, handler);
+
+let a = new Proxy({}, {
+    get: function (target, handler){
+        return 'leo';
+    }
+})
+a.name; // leo
+a.age;  // leo
+a.abcd; // leo
+// 上述a实例中，在第二个参数中定义了get方法，来拦截外界访问，并且get方法接收两个参数，分别是目标对象和所要访问的属性，所以不管外部访问对象中任何属性都会执行get方法返回leo。
+```
+::: tip
+只能使用Proxy实例的对象才能使用这些操作。
+如果handler没有设置拦截，则直接返回原对象。
+:::
+
+### 2. get属性: get属性是在你得到某对象属性值时预处理的方法，他接受三个参数
+
+1. target：得到的目标值
+
+2. key：目标的key值，相当于对象的属性
+
+3. property：这个不太常用，用法还在研究中，还请大神指教。
 
 
-3. set属性: set属性是值你要改变Proxy属性值时，进行的预先处理。它接收四个参数。
+### 3. set属性: set属性是值你要改变Proxy属性值时，进行的预先处理。它接收四个参数。
 
-    1.target:目标值。
-    2. key：目标的Key值。
-    3. value：要改变的值。
-    4. receiver：改变前的原始值。
+1.target:目标值。
 
+2. key：目标的Key值。
+
+3. value：要改变的值。
+
+4. receiver：改变前的原始值。
 
 ```js
 var pro = new Proxy({
@@ -1940,7 +2358,7 @@ console.log(pro.name);
 ```
 
 
-4. apply的使用: apply的作用是调用内部的方法，它使用在方法体是一个匿名函数时。看下边的代码。
+### 4. apply的使用: apply的作用是调用内部的方法，它使用在方法体是一个匿名函数时。看下边的代码。
 
 ```js
 let target = function () {
@@ -1958,15 +2376,89 @@ var pro = new Proxy(target, handler);
 console.log(pro());
 ```
 
+### 5. Proxy支持的13种拦截操作：
+
+- get(target, propKey, receiver)：- 拦截对象属性的读取，比如proxy.foo和proxy['foo']。
+
+- set(target, propKey, value, receiver)：- 拦截对象属性的设置，比如proxy.foo = v或proxy['foo'] = v，返回一个布尔值。
+
+- has(target, propKey)：- 拦截propKey in proxy的操作，返回一个布尔值。
+
+- deleteProperty(target, propKey)：- 拦截delete proxy[propKey]的操作，返回一个布尔值。
+
+- ownKeys(target)：- 拦截Object.getOwnPropertyNames(proxy)、Object.getOwnPropertySymbols(proxy)、Object.keys(proxy)、for...in循环，返回一个数组。该方法返回目标对象所有自身的属性的属性名，而Object.keys()的返回结果仅包括目标对象自身的可遍历属性。
+
+- getOwnPropertyDescriptor(target, propKey)：- 拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象。
+
+- defineProperty(target, propKey, propDesc)：- 拦截Object.defineProperty(proxy, propKey, propDesc）、Object.defineProperties(proxy, propDescs)，返回一个布尔值。
+
+- preventExtensions(target)：- 拦截Object.preventExtensions(proxy)，返回一个布尔值。
+
+- getPrototypeOf(target)：- 拦截Object.getPrototypeOf(proxy)，返回一个对象。
+
+- isExtensible(target)：- 拦截Object.isExtensible(proxy)，返回一个布尔值。
+
+- setPrototypeOf(target, proto)：- 拦截Object.setPrototypeOf(proxy, proto)，返回一个布尔值。如果目标对象是函数，那么还有两种额外操作可以拦截。
+
+- apply(target, object, args)：- 拦截 Proxy 实例作为函数调用的操作，比如proxy(...args)、proxy.call(object, ...args)、proxy.apply(...)。
+
+- construct(target, args)：- 拦截 Proxy 实例作为构造函数调用的操作，比如new proxy(...args)。
+
+### 6. 取消Proxy实例
+
+使用Proxy.revocale方法取消Proxy实例。
+
+```js
+let a = {};
+let b = {};
+let {proxy, revoke} = Proxy.revocale(a, b);
+
+proxy.name = 'leo';  // 'leo'
+revoeke();
+proxy.name;  // TypeError: Revoked
+```
+
+### 7. 实现 Web服务的客户端
+
+```js
+const service = createWebService('http://le.com/data');
+service.employees().than(json =>{
+    const employees = JSON.parse(json);
+})
+
+function createWebService(url){
+    return new Proxy({}, {
+        get(target, propKey, receiver{
+            return () => httpGet(url+'/'+propKey);
+        })
+    })
+}
+```
+
 ## 第16节：promise对象：Promise是有助于执行异步操作的对象。
+
+主要用途：**解决异步编程带来的回调地狱问题**。
+
+把<font color=FF0000>Promise</font>简单理解一个容器，存放着某个未来才会结束的事件（通常是一个异步操作）的结果。
+
+通过<font color=FF0000>Promise</font>对象来获取异步操作消息，处理各种异步操作。
 
 - 在Promise之前，程序员习惯于定义回调来处理异步操作。回调是Javascript中的常规函数，它在异步操作完成时执行。
 
 - Promise是ES6中的一个有用功能。它们用于进行异步操作，例如API请求，文件处理，下载图像等。从技术上讲，它们是表示异步操作完成的对象。
 
+### 特点
+
+#### 1. 对象的状态不受外界影响。
+
+>>> Promise对象代表一个异步操作，有三种状态：**pending（进行中）**、**fulfilled（已成功）**和**rejected（已失败）**。只有异步操作的结果，可以决定当前是哪一种状态，任何其他操作都无法改变这个状态。这也是Promise这个名字的由来，它的英语意思就是“承诺”，表示其他手段无法改变。
+
 - Promise的生命周期：
+    
     1. 挂起：在这种状态下，promise只是执行异步操作。例如，它正在向服务器发出一些API请求或从cdn下载一些图像。 从这个状态Promise可以转移到完成状态或拒绝状态
+    
     2. 完成：如果Promise已达到此状态，则表示异步操作已完成，并且得到了输出的结果。例如，我们有了来自API的响应。
+    
     3. 拒绝：如果Promise已达到此状态，则表示异步操作未成功，并且我们得到导致操作失败的错误。
 ```js
 // 通过使用new关键字创建构造函数来定义Promise。 然后构造函数将有一个函数（我们称之为执行函数。）
@@ -1974,12 +2466,37 @@ const apiCall = new Promise(function(resolve, reject) {
  // 异步操作在这里定义..
 });
 ```
+#### 2. 一旦状态改变，就不会再变，任何时候都可以得到这个结果。
 
-- 执行函数有两个参数resolve和reject。
+>>> Promise对象的状态改变，只有两种可能：从pending变为fulfilled和从pending变为rejected。只要这两种情况发生，状态就凝固了，不会再变了，会一直保持这个结果，这时就称为 resolved（已定型）。如果改变已经发生了，你再对Promise对象添加回调函数，也会立即得到这个结果。这与事件（Event）完全不同，事件的特点是，如果你错过了它，再去监听，是得不到结果的。
+
+### Promise缺点
+
+- 无法取消Promise，一旦新建它就会立即执行，无法中途取消。
+
+- 如果不设置回调函数，Promise内部抛出的错误，不会反应到外部。
+
+- 当处于pending状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。
+
+### 基本使用
+
+Promise为一个构造函数，需要用new来实例化。
+
+```js
+let p = new Promise(function (resolve, reject){
+   if(/*异步操作成功*/){
+       resolve(value);
+   } else {
+       reject(error);
+   }
+})
+```
+
+执行函数有两个参数resolve和reject。
     
-    1. 第一个参数resolve实际上是一个函数。 它在执行函数内部调用，它表示异步操作成功，我们得到了结果。 resolve函数有助于Promise从挂起状态转为完成状态。
-    
-    2. 像resolve一样，reject也是一个函数。 它也在执行函数内部调用，它表示异步操作不成功，我们遇到了错误。 reject函数有助于Promise从挂起状态转为拒绝状态。
+1. 第一个参数resolve实际上是一个函数。 它在执行函数内部调用，它表示异步操作成功，我们得到了结果。 resolve函数有助于Promise从挂起状态转为完成状态。
+
+2. 像resolve一样，reject也是一个函数。 它也在执行函数内部调用，它表示异步操作不成功，我们遇到了错误。 reject函数有助于Promise从挂起状态转为拒绝状态。
 
 ```js
 const apiCall = new Promise(function(resolve, reject) {
@@ -1992,7 +2509,7 @@ const apiCall = new Promise(function(resolve, reject) {
 });
 ```
 
-- 使用处理器来获取promise的输出: 处理器是在某些事件发生时执行的函数，例如单击按钮，移动光标等。
+使用处理器来获取promise的输出: 处理器是在某些事件发生时执行的函数，例如单击按钮，移动光标等。
 
 ```js
 // 调用promise，并使用handlers.
@@ -2020,13 +2537,183 @@ apiCall
 }) 
 ```
 
-- 回顾
-    1. 使用带有函数参数的new关键字定义Promise。 然后函数本身有两个函数参数resolve和reject。
-    2. 操作成功时应调用resolve函数。
-    3. 操作失败时应调用reject函数。
-    4. 处理器then监控resolve函数。
-    5. 处理器catch监控reject函数。
-    6. 确保代码的可读性。
+### 基本方法
+    
+1. 使用带有函数参数的new关键字定义Promise。 然后函数本身有两个函数参数resolve和reject。
+
+2. 操作成功时应调用resolve函数。
+
+3. 操作失败时应调用reject函数。
+
+4. 处理器then监控resolve函数。
+    
+作用是为Promise添加状态改变时的回调函数，then方法的第一个参数是resolved状态的回调函数，第二个参数（可选）是rejected状态的回调函数。
+
+then方法返回一个新Promise实例，与原来Promise实例不同，因此可以使用链式写法，上一个then的结果作为下一个then的参数。
+
+```js
+getJSON("/posts.json").then(function(json) {
+    return json.post;
+}).then(function(post) {
+// ...
+});
+```
+
+5. 处理器catch监控reject函数。
+
+Promise.prototype.catch方法是.then(null, rejection)的别名，用于指定发生错误时的回调函数。
+
+```js
+getJSON('/posts.json').then(function(posts) {
+  // ...
+}).catch(function(error) {
+  // 处理 getJSON 和 前一个回调函数运行时发生的错误
+  console.log('发生错误！', error);
+});
+```
+
+如果 Promise 状态已经变成resolved，再抛出错误是无效的。
+
+```js
+const p = new Promise(function(resolve, reject) {
+  resolve('ok');
+  throw new Error('test');
+});
+p
+  .then(function(value) { console.log(value) })
+  .catch(function(error) { console.log(error) });
+// ok
+```
+
+> 一般来说，不要在then方法里面定义Reject 状态的回调函数（即then的第二个参数），总是使用catch方法。
+
+6. Promise.prototype.finally()
+
+finally方法用于指定不管 Promise 对象最后状态如何，都会执行的操作。该方法是 ES2018 引入标准的。
+
+```js
+promise
+.then(result => {···})
+.catch(error => {···})
+.finally(() => {···});
+```
+7. Promise.all()
+用于将多个 Promise 实例，包装成一个新的 Promise 实例，参数可以不是数组，但必须是Iterator接口，且返回的每个成员都是Promise实例。
+
+```js
+const p = Promise.all([p1, p2, p3]);
+```
+
+p的状态由p1、p2、p3决定，分成两种情况。
+1. 只有p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
+2. 只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。
+
+```js
+// 生成一个Promise对象的数组
+const promises = [2, 3, 5, 7, 11, 13].map(function (id) {
+  return getJSON('/post/' + id + ".json");
+});
+
+Promise.all(promises).then(function (posts) {
+  // ...
+}).catch(function(reason){
+  // ...
+});
+```
+
+上面代码中，promises是包含 6 个 Promise 实例的数组，只有这 6 个实例的状态都变成fulfilled，或者其中有一个变为rejected，才会调用Promise.all方法后面的回调函数。
+
+>>> 注意：如果Promise的参数中定义了catch方法，则rejected后不会触发Promise.all()的catch方法，因为参数中的catch方法执行完后也会变成resolved，当Promise.all()方法参数的实例都是resolved时就会调用Promise.all()的then方法。
+
+```js
+const p1 = new Promise((resolve, reject) => {
+  resolve('hello');
+})
+.then(result => result)
+.catch(e => e);
+
+const p2 = new Promise((resolve, reject) => {
+  throw new Error('报错了');
+})
+.then(result => result)
+.catch(e => e);
+
+Promise.all([p1, p2])
+.then(result => console.log(result))
+.catch(e => console.log(e));
+// ["hello", Error: 报错了]
+```
+
+如果参数里面都没有catch方法，就会调用Promise.all()的catch方法。
+
+```js
+const p1 = new Promise((resolve, reject) => {
+  resolve('hello');
+})
+.then(result => result);
+
+const p2 = new Promise((resolve, reject) => {
+  throw new Error('报错了');
+})
+.then(result => result);
+
+Promise.all([p1, p2])
+.then(result => console.log(result))
+.catch(e => console.log(e));
+// Error: 报错了
+```
+
+8. Promise.race()
+
+与Promise.all方法类似，也是将多个Promise实例包装成一个新的Promise实例。
+
+```js
+const p = Promise.race([p1, p2, p3]);
+```
+
+与Promise.all方法区别在于，Promise.race方法是p1, p2, p3中只要一个参数先改变状态，就会把这个参数的返回值传给p的回调函数。
+
+9. Promise.resolve()
+
+将现有对象转换成 Promise 对象。
+
+```js
+const p = Promise.resolve($.ajax('/whatever.json'));
+```
+
+10. Promise.reject()
+
+返回一个rejected状态的Promise实例。
+
+```js
+const p = Promise.reject('出错了');
+// 等同于
+const p = new Promise((resolve, reject) => reject('出错了'))
+
+p.then(null, function (s) {
+  console.log(s)
+});
+// 出错了
+```
+> 注意，Promise.reject()方法的参数，会原封不动地作为reject的理由，变成后续方法的参数。这一点与Promise.resolve方法不一致。
+
+```js
+const thenable = {
+  then(resolve, reject) {
+    reject('出错了');
+  }
+};
+
+Promise.reject(thenable)
+.catch(e => {
+  console.log(e === thenable)
+})
+// true
+```
+
+
+11. 确保代码的可读性。
+
 ```js
 var ApiCall = new Promise(function(resolve, reject) {
   
@@ -2055,11 +2742,11 @@ ApiCall
 ```
 
 
-- promise的基本用法: promise执行异步操作非常好用，那我们就来模仿一个异步操作的过程，那就以吃饭为例吧。要想在家吃顿饭，是要经过三个步骤的。
+promise的基本用法: promise执行异步操作非常好用，那我们就来模仿一个异步操作的过程，那就以吃饭为例吧。要想在家吃顿饭，是要经过三个步骤的。
 
-    - 洗菜做饭。
-    - 坐下来吃饭。
-    - 收拾桌子洗碗。
+- 洗菜做饭。
+- 坐下来吃饭。
+- 收拾桌子洗碗。
 
 - 这个过程是有一定的顺序的，你必须保证上一步完成，才能顺利进行下一步。我们可以在脑海里先想想这样一个简单的过程在ES5写起来就要有多层的嵌套。那我们现在用promise来实现。
 
