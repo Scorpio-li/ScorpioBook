@@ -260,15 +260,22 @@ Set|[1, "1", null, undefined, String, String, /a/, /a/, NaN]|对象不去重 NaN
 
 
 # 三. 数组循环
-- 原生js有两种方法都可以使用
-    - for(var i;i<arr.length;i++){}
-    - for(var i in arr){}
 
-- jquery有两个函数共计四种方法都可以使用
-    - $.each(arr,function(i,item){}),
-    - $(arr).each(function(i,item){}),
-    - $.map(arr,function(i,item){}),
-    - $(arr).map(function(i,item){})]
+原生js有两种方法都可以使用
+
+- for(var i;i<arr.length;i++){}
+
+- for(var i in arr){}
+
+jquery有两个函数共计四种方法都可以使用
+
+- $.each(arr,function(i,item){}),
+
+- $(arr).each(function(i,item){}),
+
+- $.map(arr,function(i,item){}),
+
+- $(arr).map(function(i,item){})]
 
 ## 数组中如何跳出循环
 
@@ -277,9 +284,24 @@ Set|[1, "1", null, undefined, String, String, /a/, /a/, NaN]|对象不去重 NaN
 - 2、而在jquery中 $.each使用return true 终止本次循环计入下一个循环，return false终止整个循环。  函数返回值跟此处无关
 
 ## 1. Array.forEach()
-- 遍历数组里的每个元素，你可以在回调函数里对每个元素进行操作。
 
-- .forEach()方法没有返回值，你不需要在回调函数里写 return
+遍历数组里的每个元素，你可以在回调函数里对每个元素进行操作。循环遍历数组中的每一项,只能遍历数组
+
+写法：
+
+```js
+数组对象.forEach(function(参数变量名1,参数变量名2，参数变量名3)){
+// 做一些操作,forEach是没有返回值,返回值为undefined
+})
+```
+
+- 变量参数名1表示的是数组中的项值(数组当前项的值)
+
+- 变量参数名2表示的是索引(数组当前项的索引)
+
+- 变量参数名3表示原数组(数组对象本身)
+
+1. .forEach()方法没有返回值，你不需要在回调函数里写 return
 
 ```js
 var animals = ['cat','dog','mouse'];
@@ -288,12 +310,25 @@ animals.forEach(function(item){
 })
 ```
 
-- 在循环中的操作对原始数组不会有影响
+2. 在循环中的操作对原始数组不会有影响
+
+> 返回值:undefined,并且总是返回undefined值,并且不可链式调用
 
 ## 2. Array.map()
-- .map()方法能够遍历数组，再返回一个新数组，这个新数组里的元素是经过了指定的回调函数处理过的。
 
+.map()方法能够遍历数组，再返回一个新数组，这个新数组里的元素是经过了指定的回调函数处理过的。循环遍历数组中的每一项,也只能遍历数组。
+
+写法：
+
+```js
+数组对象.map(callback(参数名1,参数名2,参数名3){
+// 对原数组做一些操作
+}
 ```
+
+1. 必须要有返回值,如果不给return,它会返回一个undefined
+
+```js
 var numbers = [2,3,4,5,6,7,8];
 
 var doubleNumbers = numbers.map(function(item){
@@ -302,13 +337,28 @@ var doubleNumbers = numbers.map(function(item){
 
 console.log(doubleNumbers);
 ```
-- 如果你想修改数组里的每个元素，然后将修改后的数组存入新的数组，那使用 .map() 方法最方便。
 
+2. return 的返回值是什么,相当于给这个新增的数组添加新的值,但它不会影响原数组,只是将原来的数组拷贝了一份,把拷贝的数组项进行更改,支持链式调用
+
+3. 如果你想修改数组里的每个元素，然后将修改后的数组存入新的数组，那使用 .map() 方法最方便。
+
+> return 的返回值是什么,相当于给这个新增的数组添加新的值,但它不会影响原数组,只是将原来的数组拷贝了一份,把拷贝的数组项进行更改,支持链式调用
 
 ## 3. Array.filter()
-- .filter()方法能够 过滤掉数组中的某些元素，你可以在回调函数里设定条件，不符合条件的元素都会排除在外。
 
+.filter()方法能够 过滤掉数组中的某些元素，你可以在回调函数里设定条件，不符合条件的元素都会排除在外。
+
+经过filter函数后会创建一个新的数组, 回调函数返回的结果一个boolean值,若结果为真,则返回匹配的项,若为假,则返回一个空数组，它不会改变原有数组,返回的是过滤后的新数组
+
+写法：
+
+```js
+数组对象.filter(function(currentVal,index,arrs){
+// 做一些操作
+}
 ```
+
+```js
 var scores = [3,5,7,8,6,12,34,2,52];
 var topScore = scores.filter(function(item){
     if(item>10){
@@ -320,10 +370,17 @@ var topScore = scores.filter(function(item){
 console.log('topScore',topsore);
 ```
 
-## 4. Array.every()
--.every()方法的作用是用指定的回调函数去检查数组中的每个元素，如果对于每个元素，这个回调函数都返回true，则.every()返回true。否则，.every()返回false。
+> 特点：
 
-```
+1. filter函数遍历的元素范围,在第一次调用回调函数callback的时候就已经确定了的
+
+2. 在调用filter之后添加到数组中的元素不会被filter遍历到,如果已经存在的元素被改变了，则他们传入callback的值是filter遍历到他们那一刻的值,被删除或从来未被赋值的元素不会被遍历到,支持链式调用
+
+## 4. Array.every()
+
+.every()方法的作用是用指定的回调函数去检查数组中的每个元素，如果对于每个元素，这个回调函数都返回true，则.every()返回true。否则，.every()返回false。
+
+```js
 var ages = [23,19,45,12];
 var oldersThan18 = ages.every(function(item){
     return item>18;
@@ -331,20 +388,23 @@ var oldersThan18 = ages.every(function(item){
 })
 console.log(oldersThan18);
 ```
+
 - 如果你想知道数组中的所有元素都是否符合某种条件，使用 .every() 最方便。
 
 ## 5. Array.some()
-- some判断是否有一个元素在判断函数中返回true。如果某个元素判断为true，则不再继续判断返回true；
 
-```
+some判断是否有一个元素在判断函数中返回true。如果某个元素判断为true，则不再继续判断返回true；
+
+```js
 var array = [1,2,3,4];
 console.log(array.some(function(x){return x<3}));//true
 ```
 
 ## 6. Array.reduce()
-- reduce是聚合操作，将每一个元素按照传入的函数操作，生成最终的结果。reduce的传入函数可以获得四个参数，前一个元素，当前元素，当前元素索引，数组。
 
-```
+reduce是聚合操作，将每一个元素按照传入的函数操作，生成最终的结果。reduce的传入函数可以获得四个参数，前一个元素，当前元素，当前元素索引，数组。
+
+```js
 var array =[1,2,3,4];
 var result= array.reduce(
     function(pre,current,index,array){
@@ -355,9 +415,37 @@ console.log(result);//10
 ```
 
 ## 7. Array.contract()
-- 连接两个数组
 
-## 8. 
+连接两个数组
+
+## 8. Array.find()
+
+用来查找目标元素,若找到就返回该元素，若找不到就返回undefined，同样不会改变原有数组
+
+写法：
+
+```js
+数组.find(callback(参数1,参数2,参数3)
+```
+特点:
+
+- 找到第一个符合条件之后,就不会往后找了,这与filter过滤是不一样的，find方法比较快速便捷
+
+- 返回值:若匿名回调函数结果为真,则返回所匹配的选项对象,若为假,则返回undefined
+
+
+## 性能比较
+
+**性能上**:for循环>forEach>map
+
+**可读性**: forEach/map>for循环
+
+<font color=FF0000>
+区别: for循环是按顺序遍历，按照下标索引的方式进行读取访问元素的,随机访问,而forEach/map等是使用<font color=FF0000>iterator</font>迭代器进行遍历，先取到数组中的每一项的地止放入到队列中,然后按顺序取出队里的地址来访问元素
+
+大体上讲,如果数据量不是很大的情况下,抛开业务场景和使用便利性，单纯谈性能和效率是没有意义的,一些Es5,ES6新增的数组迭代器方法方便了前端开发，使得以往复杂或者冗长的代码，可以变得易读而且精炼
+
+好的for循环写法，在大数据量的情况下，确实也有着更好的兼容和多环境运行表现
 
 # 四. 数组的深浅拷贝
 - 浅拷贝:直接赋值的方式,简单的将它赋予其他变量，那么我们只要更改其中的任何一个，然后其他的也会跟着改变。
