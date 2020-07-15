@@ -60,6 +60,9 @@
     * [node-express框架](node/express.md)
     * [node实例](ndoe/example.md)
 
+* [Vue](vue/README.md)
+    * [Vue配置](vue/config.md)
+    
 * [Comprehensive](comprehensive/README.md)
     * [前端动画](comprehensive/animation/README.md)
         * [基础](comprehensive/animation/base.md)
