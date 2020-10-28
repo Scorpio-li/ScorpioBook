@@ -75,13 +75,6 @@ export default const returnTimestamp=(strTime)=>{
 })   
 ```
 
-## 5. 比较yyyy-MM-dd时间大小
-```js
-export default const compareTwo=(dateOne,dateTwo)=>{
-    return Number(dateOne.replace(/\-/g,""))<Number(dateTwo.replace(/\-/g,""))
-}
-```
-
 ## 6. 计算两个日期格式为(yyyy-MM-dd)相差几个月
 ```js
 export default const disparityFewMonth = (dateOne, dateTwo) => {
