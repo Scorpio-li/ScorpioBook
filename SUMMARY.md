@@ -83,6 +83,7 @@
     * [Number(数字)](functional/number.md)
 
 * [Project(项目中常见问题)](project/README.md)
+    * [Git Flow工作流程](project/gitflow.md)
     * [css-standard(BEM命名规范入门)](project/css-standars.md)
     * [form(表单)](project/form.md)
     * [npm与package.json快速入门](project/package.md)

@@ -6,7 +6,7 @@ A book about Common Use
 
 ### 1. 安装教程
 
-1. 下载安装 Node.js
+1. 下载安装 Node.js(最好使用8.x版本)
 
 2. 安装 GitBook
 ```js
